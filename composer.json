@@ -24,7 +24,7 @@
   "require-dev": {
     "namelesscoder/typo3-repository-client": "1.2.x-dev",
     "mikey179/vfsStream": "~1.6.0",
-    "phpunit/phpunit": "~4.7.0"
+    "phpunit/phpunit": "~4.8.0"
   },
   "autoload": {
     "psr-4": {
@@ -39,7 +39,7 @@
     }
   },
   "replace": {
-    "cart": "self.version"
+    "invoicr": "self.version"
   },
   "config": {
     "vendor-dir": ".Build/vendor",
