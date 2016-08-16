@@ -26,12 +26,9 @@
     "mikey179/vfsStream": "~1.6.0",
     "phpunit/phpunit": "~4.7.0"
   },
-  "replace": {
-    "invoicr": "*"
-  },
   "autoload": {
     "psr-4": {
-      "Extcode\\Invoicr\\": "Classes/"
+      "Extcode\\Invoicr\\": "Classes"
     }
   },
   "autoload-dev": {
@@ -39,6 +36,22 @@
       "Extcode\\Invoicr\\Tests\\": "Tests",
       "TYPO3\\CMS\\Core\\Tests\\": ".Build/vendor/typo3/cms/typo3/sysext/core/Tests/",
       "TYPO3\\CMS\\Fluid\\Tests\\": ".Build/vendor/typo3/cms/typo3/sysext/fluid/Tests/"
+    }
+  },
+  "replace": {
+    "cart": "self.version"
+  },
+  "config": {
+    "vendor-dir": ".Build/vendor",
+    "bin-dir": ".Build/bin"
+  },
+  "extra": {
+    "typo3/cms": {
+      "cms-package-dir": "{$vendor-dir}/typo3/cms",
+      "web-dir": ".Build/Web",
+      "Package": {
+        "partOfMinimalUsableSystem": true
+      }
     }
   }
 }
