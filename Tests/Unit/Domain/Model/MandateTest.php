@@ -41,6 +41,83 @@ class MandateTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
     /**
      * @test
      */
+    public function getReferenceReturnsInitialValue()
+    {
+        $this->assertSame(
+            '',
+            $this->subject->getReference()
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function setReferenceSetsReference()
+    {
+        $reference = 'M-X-10000-1';
+
+        $this->subject->setReference($reference);
+
+        $this->assertSame(
+            $reference,
+            $this->subject->getReference()
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function getReferenceDateReturnsInitialValue()
+    {
+        $this->assertEquals(
+            null,
+            $this->subject->getReferenceDate()
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function setReferenceDateSetsReferenceDate()
+    {
+        $dateTimeFixture = new \DateTime();
+        $this->subject->setReferenceDate($dateTimeFixture);
+
+        $this->assertEquals(
+            $dateTimeFixture,
+            $this->subject->getReferenceDate()
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function getAccountHolderReturnsInitialValue()
+    {
+        $this->assertSame(
+            '',
+            $this->subject->getAccountHolder()
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function setAccountHolderSetsAccountHolder()
+    {
+        $accountHolder = 'Account Holder';
+
+        $this->subject->setAccountHolder($accountHolder);
+
+        $this->assertSame(
+            $accountHolder,
+            $this->subject->getAccountHolder()
+        );
+    }
+
+    /**
+     * @test
+     */
     public function getIbanReturnsInitialValue()
     {
         $this->assertSame(

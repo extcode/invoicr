@@ -1,3 +1,9 @@
+0.1.1
+    2016-08-16
+    Daniel Lorenz <daniel.lorenz@extco.de>
+
+    * TASK #1217: add unit tests for mandate model
+
 0.1.0
     2016-08-16
     Daniel Lorenz <daniel.lorenz@extco.de>

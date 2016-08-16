@@ -42,7 +42,7 @@ class Mandate extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @var string
      */
-    protected $accountHolder = null;
+    protected $accountHolder = '';
 
     /**
      * iban
