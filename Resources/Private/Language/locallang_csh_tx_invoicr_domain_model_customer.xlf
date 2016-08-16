@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-08-25T21:03:41Z" product-name="invoicr">
+		<header/>
+		<body>
+			<trans-unit id="number.description">
+				<source>number</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,35 @@
+<div class="invoice_module_search">
+    <div class="invoice_module_search_inner">
+
+        <f:form action="{action}" name="filter" id="invoice_module_search">
+
+            <div>
+                <label for="customer">
+                    <f:translate key="tx_invoicr_domain_model_invoice.customer"/>
+                </label>
+                <f:form.textfield property="title" id="customer" class="" value="{piVars.filter.customer}"/>
+            </div>
+            <div>
+                <label for="invoiceNumber">
+                    <f:translate key="tx_invoicr_domain_model_invoice.invoice_number"/>
+                </label>
+                <f:form.textfield property="invoiceNumber" id="invoiceNumber" class=""
+                                  value="{piVars.filter.invoiceNumber}"/>
+            </div>
+            <div>
+                <label for="title">
+                    <f:translate key="tx_invoicr_domain_model_invoice.title"/>
+                </label>
+                <f:form.textfield property="title" id="title" class="" value="{piVars.filter.title}"/>
+            </div>
+
+            <div class="col-25" style="float:right;">
+                <f:form.submit value="{f:translate(key: 'tx_invoicr.controller.invoice.action.filterInvoices')}" class="searchall_submit"/>
+            </div>
+
+            <div class="clear">&nbsp;</div>
+
+        </f:form>
+
+    </div>
+</div>

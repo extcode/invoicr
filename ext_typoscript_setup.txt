@@ -1,0 +1,32 @@
+module.tx_invoicr {
+    view {
+        templateRootPaths {
+            0 = EXT:invoicr/Resources/Private/Backend/Templates/
+        }
+        partialRootPaths {
+            0 = EXT:invoicr/Resources/Private/Backend/Partials/
+        }
+        layoutRootPaths {
+            0 = EXT:invoicr/Resources/Private/Backend/Layouts/
+        }
+    }
+}
+
+config.tx_extbase {
+    persistence {
+        classes {
+            Extcode\Invoicr\Domain\Model\FileReference {
+                mapping {
+                    tableName = sys_file_reference
+                    columns {
+                        uid_local.mapOnProperty = originalFileIdentifier
+                    }
+                }
+            }
+        }
+        objects {
+            TYPO3\CMS\Extbase\Domain\Model\FileReference.className =Extcode\Invoicr\Domain\Model\FileReference
+        }
+        updateReferenceIndex = 1
+    }
+}

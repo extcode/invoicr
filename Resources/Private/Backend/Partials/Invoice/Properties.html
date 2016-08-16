@@ -1,0 +1,64 @@
+
+<table class="tx-invoicr typo3-dblist">
+	<tr>
+		<th>
+			<f:translate key="tx_invoicr_domain_model_invoice.title" />:
+		</th>
+		<td>
+			{invoice.title}
+		</td>
+	</tr>
+	<f:if condition="{invoice.description}">
+		<tr>
+			<td>
+				<f:translate key="tx_invoicr_domain_model_invoice.description" />:
+			</td>
+			<td>
+				{invoice.description}
+			</td>
+		</tr>
+	</f:if>
+	<tr>
+		<th>
+			<f:translate key="tx_invoicr_domain_model_invoice.period_of_performance" />
+		</th>
+		<td>
+			<f:format.date date="{invoice.beginPeriodOfPerformanceDate}"
+						   format="{f:translate(key: 'tx_invoicr_domain_model_invoice.dateFormat' )}" /> -
+			<f:format.date date="{invoice.endPeriodOfPerformanceDate}"
+						   format="{f:translate(key: 'tx_invoicr_domain_model_invoice.dateFormat' )}" />
+		</td>
+	</tr>
+	<tr>
+		<th>
+			<f:translate key="tx_invoicr_domain_model_invoice.invoice_date" />
+		</th>
+		<td>
+			{invoice.invoiceDate -> f:format.date()}
+		</td>
+	</tr>
+	<tr>
+		<th>
+			<f:translate key="tx_invoicr_domain_model_invoice.terms_of_payment" />
+		</th>
+		<td>
+			{invoice.termsOfPayment}
+		</td>
+	</tr>
+	<tr>
+		<th>
+			<f:translate key="tx_invoicr_domain_model_invoice.was_sent_at" />
+		</th>
+		<td>
+			{invoice.wasSentAt -> f:format.date()}
+		</td>
+	</tr>
+	<tr>
+		<th>
+			<f:translate key="tx_invoicr_domain_model_invoice.was_paid_at" />
+		</th>
+		<td>
+			{invoice.wasPaidAt -> f:format.date()}
+		</td>
+	</tr>
+</table>

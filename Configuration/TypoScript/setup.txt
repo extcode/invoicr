@@ -1,0 +1,146 @@
+module.tx_invoicr {
+    persistence {
+        storagePid = {$module.tx_invoicr.persistence.storagePid}
+    }
+
+    view {
+        templateRootPaths {
+            100 = {$module.tx_invoicr.view.templateRootPath}
+        }
+
+        partialRootPaths {
+            100 = {$module.tx_invoicr.view.partialRootPath}
+        }
+
+        layoutRootPaths {
+            100 = {$module.tx_invoicr.view.layoutRootPath}
+        }
+    }
+
+    invoicePdf {
+        debug = 0
+
+        fontSize = 10
+        showFoldMarks = 1
+        showAddressFieldMarks = 1
+
+        enableHeader = 0
+        enableFooter = 0
+
+        header {
+            logo {
+                width = 50
+                positionX = 10
+                positionY = 5
+                file = EXT:invoicr/Resources/Public/Icons/invoicr_logo.png
+            }
+
+            content {
+                width = 120
+                positionX = 80
+                positionY = 5
+                align = R
+            }
+        }
+
+        footer{
+
+        }
+
+        renderParts {
+            envelopeAddress {
+                width = 83
+                height = 10
+                positionX = 21
+                positionY = 46
+                fontSize = 6
+            }
+
+            invoiceAddress {
+                width = 83
+                height = 33
+                positionX = 21
+                positionY = 56
+            }
+
+            date {
+                width = 60
+                height = 5
+                positionX = 130
+                positionY = 84
+                align = R
+            }
+
+            overview {
+                width = 170
+                height = 50
+                positionX = 20
+                positionY = 100
+            }
+        }
+
+        renderInvoiceTable {
+            width=170
+            positionX=20
+            fontSize=8
+        }
+    }
+}
+
+plugin.tx_invoicr {
+    view {
+        templateRootPaths {
+            100 = {$plugin.tx_invoicr.view.templateRootPath}
+        }
+
+        partialRootPaths {
+            100 = {$plugin.tx_invoicr.view.partialRootPath}
+        }
+
+        layoutRootPaths {
+            100 = {$plugin.tx_invoicr.view.layoutRootPath}
+        }
+    }
+
+    persistence {
+        storagePid = {$plugin.tx_invoicr.persistence.storagePid}
+    }
+
+    features {
+        # uncomment the following line to enable the new Property Mapper.
+        # rewrittenPropertyMapper = 1
+    }
+}
+
+plugin.tx_invoicr._CSS_DEFAULT_STYLE (
+	textarea.f3-form-error {
+		background-color:#FF9F9F;
+		border: 1px #FF0000 solid;
+	}
+
+	input.f3-form-error {
+		background-color:#FF9F9F;
+		border: 1px #FF0000 solid;
+	}
+
+	.tx-invoicr table {
+		border-collapse:separate;
+		border-spacing:10px;
+	}
+
+	.tx-invoicr table th {
+		font-weight:bold;
+	}
+
+	.tx-invoicr table td {
+		vertical-align:top;
+	}
+
+	.typo3-messages .message-error {
+		color:red;
+	}
+
+	.typo3-messages .message-ok {
+		color:green;
+	}
+)

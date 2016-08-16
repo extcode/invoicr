@@ -1,0 +1,144 @@
+module.tx_invoicr {
+	#persistence {
+	#	storagePid = {$module.tx_invoicr.persistence.storagePid}
+	#}
+	view {
+		templateRootPath = {$module.tx_invoicr.view.templateRootPath}
+		partialRootPath = {$module.tx_invoicr.view.partialRootPath}
+		layoutRootPath = {$module.tx_invoicr.view.layoutRootPath}
+	}
+
+	settings {
+		pdf {
+			fontSize = 8
+			templatePath = {$module.tx_invoicr.view.templateRootPath}Invoice/Pdf/Template.pdf
+			enableHeader = 0
+			enableFooter = 0
+			marginTop = 40
+			marginBottom = 50
+
+			blocks {
+				logoBlock >
+				headerBlock >
+
+				dateBlock {
+					positionX = -65
+					positionY = 85
+					width = 65
+					align = R
+
+					content = COA
+					content {
+						10 = TEXT
+						10.value = Rotenburg, den
+						10.noTrimWrap = || |
+						20 = TEXT
+						20 {
+							data = date : U
+							strftime = %d.%m.%Y
+						}
+					}
+				}
+
+				addressBlockSender {
+					positionY = 47
+					width = 200
+					fontSize = 6
+
+					content = COA
+					content {
+						10 = TEXT
+						10.value = extco.de UG (haftungsbeschränkt) * Marta-Henke-Straße 7 * 27356 Rotenburg
+					}
+				}
+
+				addressBlock {
+					positionY = 50
+					width = 100
+
+					template = {$module.tx_invoicr.view.templateRootPath}Invoice/Pdf/AddressBlock.html
+				}
+
+				overviewBlock {
+					positionY = 100
+					width = 170
+
+					template = {$module.tx_invoicr.view.templateRootPath}Invoice/Pdf/SubjectBlock.html
+				}
+
+				contentBlock {
+					width = 170
+					paddingY = 5
+
+					template = {$module.tx_invoicr.view.templateRootPath}Invoice/Pdf/ContentBlock.html
+				}
+
+				greetingBlock {
+					width = 190
+					paddingY = 5
+
+					content = COA
+					content {
+						10 = TEXT
+						10.value = Für Rückfragen stehe ich Ihnen gern zur Verfügung.
+						10.wrap = |<br><br><br>
+						20 = TEXT
+						20.value = Mit freundlichen Grüßen
+						20.wrap = |<br><br><br><br><br>
+						30 = TEXT
+						30.value = Daniel Lorenz
+					}
+				}
+			}
+		}
+	}
+}
+
+plugin.tx_invoicr {
+	view {
+		templateRootPath = {$plugin.tx_invoicr.view.templateRootPath}
+		partialRootPath = {$plugin.tx_invoicr.view.partialRootPath}
+		layoutRootPath = {$plugin.tx_invoicr.view.layoutRootPath}
+	}
+	persistence {
+		storagePid = {$plugin.tx_invoicr.persistence.storagePid}
+	}
+	features {
+		# uncomment the following line to enable the new Property Mapper.
+		# rewrittenPropertyMapper = 1
+	}
+}
+
+plugin.tx_invoicr._CSS_DEFAULT_STYLE (
+	textarea.f3-form-error {
+		background-color:#FF9F9F;
+		border: 1px #FF0000 solid;
+	}
+
+	input.f3-form-error {
+		background-color:#FF9F9F;
+		border: 1px #FF0000 solid;
+	}
+
+	.tx-invoicr table {
+		border-collapse:separate;
+		border-spacing:10px;
+	}
+
+	.tx-invoicr table th {
+		font-weight:bold;
+	}
+
+	.tx-invoicr table td {
+		vertical-align:top;
+	}
+
+	.typo3-messages .message-error {
+		color:red;
+	}
+
+	.typo3-messages .message-ok {
+		color:green;
+	}
+
+)

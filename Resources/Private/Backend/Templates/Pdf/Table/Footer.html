@@ -1,0 +1,24 @@
+<tr>
+    <td colspan="3" style="border: 1px solid #ededed; text-align: right;">
+        Betrag (Netto)
+    </td>
+    <td colspan="2" style="border: 1px solid #ededed; text-align: right;">
+        <f:format.currency>{invoice.totalPrice} €</f:format.currency>
+    </td>
+</tr>
+<tr>
+    <td colspan="3" style="border: 1px solid #ededed; text-align: right;">
+        zzgl. 19% MwSt.
+    </td>
+    <td colspan="2" style="border: 1px solid #ededed; text-align: right;">
+        <f:format.currency>{invoice.tax} €</f:format.currency>
+    </td>
+</tr>
+<tr>
+    <td colspan="3" style="border: 1px solid #ededed; text-align: right;">
+        Betrag (Brutto)
+    </td>
+    <td colspan="2" style="border: 1px solid #ededed; text-align: right; color: #154251;">
+        <f:format.currency>{invoice.totalPrice} €</f:format.currency>
+    </td>
+</tr>

@@ -1,0 +1,75 @@
+
+<table class="tx-invoicr" >
+	<tr>
+		<td>
+			<f:translate key="tx_invoicr_domain_model_invoice.title" />
+		</td>
+		<td>
+			{invoice.title}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_invoicr_domain_model_invoice.description" />
+		</td>
+		<td>
+			{invoice.description}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_invoicr_domain_model_invoice.begin_period_of_performance_date" />
+		</td>
+		<td>
+			{invoice.beginPeriodOfPerformanceDate -> f:format.date()}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_invoicr_domain_model_invoice.end_period_of_performance_date" />
+		</td>
+		<td>
+			{invoice.endPeriodOfPerformanceDate -> f:format.date()}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_invoicr_domain_model_invoice.invoice_date" />
+		</td>
+		<td>
+			{invoice.invoiceDate -> f:format.date()}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_invoicr_domain_model_invoice.terms_of_payment" />
+		</td>
+		<td>
+			{invoice.termsOfPayment}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_invoicr_domain_model_invoice.was_sent_at" />
+		</td>
+		<td>
+			{invoice.wasSentAt -> f:format.date()}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_invoicr_domain_model_invoice.was_paid_at" />
+		</td>
+		<td>
+			{invoice.wasPaidAt -> f:format.date()}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_invoicr_domain_model_invoice.invoice_pdf" />
+		</td>
+		<td>
+			{invoice.invoicePdf.originalResource.name}
+		</td>
+	</tr>
+</table>

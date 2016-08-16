@@ -1,0 +1,23 @@
+<f:layout name="Default" />
+
+<f:section name="content">
+    <f:flashMessages renderMode="div" />
+
+    <table class="tx_invoicr typo3-dblist">
+        <tr class="t3-row-header">
+            <th><f:translate key="tx_invoicr_domain_model_customer.number" /></th>
+            <th></th>
+        </tr>
+
+        <f:for each="{customers}" as="customer">
+            <tr>
+                <td>
+                    {customer.number}
+                </td>
+                <td>
+
+                </td>
+            </tr>
+        </f:for>
+    </table>
+</f:section>

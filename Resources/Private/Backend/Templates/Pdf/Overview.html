@@ -1,0 +1,24 @@
+<span style="color: #154251; font-weight: bold;">PROJEKTNAME</span> {invoice.title} <br>
+<span style="color: #154251; font-weight: bold;">PROJEKTBESCHREIBUNG</span> {invoice.description} <br>
+<f:if condition="{invoice.beginPeriodOfPerformanceDate}">
+<f:if condition="{invoice.beginPeriodOfPerformanceDate} == {invoice.endPeriodOfPerformanceDate}">
+<f:then>
+<span style="color: #154251; font-weight: bold;">LEISTUNGSDATUM</span> <f:format.date format="d.m.Y">{invoice.beginPeriodOfPerformanceDate}</f:format.date>
+</f:then>
+<f:else>
+<span style="color: #154251; font-weight: bold;">LEISTUNGSZEITRAUM</span> <f:format.date format="d.m.Y">{invoice.beginPeriodOfPerformanceDate}</f:format.date> - <f:format.date format="d.m.Y">{invoice.endPeriodOfPerformanceDate}</f:format.date>
+</f:else>
+</f:if>
+<br>
+</f:if>
+<f:if condition="{invoice.orderNumber}">
+<span style="color: #154251; font-weight: bold;">ANGEBOTSNUMMER</span> {invoice.orderNumber}<br>
+</f:if>
+<span style="color: #154251; font-weight: bold;">RECHNUNGSNUMMER</span> {invoice.invoiceNumber}<br>
+<f:if condition="{0:invoice.typeOfPayment} == {0:'transfer'}">
+<span style="color: #154251; font-weight: bold;">ZAHLUNGSMETHODE</span> <f:translate key="tx_invoicr_domain_model_invoice.type_of_payment.transfer" /><br>
+<span style="color: #154251; font-weight: bold;">ZAHLUNGSZIEL</span> {0:invoice.termsOfPayment}<br>
+</f:if>
+<f:if condition="{0:invoice.typeOfPayment} == {0:'direct_debit'}">
+<span style="color: #154251; font-weight: bold;">ZAHLUNGSMETHODE</span> <f:translate key="tx_invoicr_domain_model_invoice.type_of_payment.direct_debit" /><br>
+</f:if>

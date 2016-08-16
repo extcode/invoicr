@@ -1,0 +1,37 @@
+
+<label for="title">
+	<f:translate key="tx_invoicr_domain_model_invoice.title" />
+</label><br />
+	<f:form.textfield property="title" /><br />
+<label for="description">
+	<f:translate key="tx_invoicr_domain_model_invoice.description" />
+</label><br />
+	<f:form.textarea property="description" cols="40" rows="15" /><br />
+<label for="beginPeriodOfPerformanceDate">
+	<f:translate key="tx_invoicr_domain_model_invoice.begin_period_of_performance_date" />
+</label><br />
+	<f:form.textfield property="beginPeriodOfPerformanceDate"  value="{invoice.beginPeriodOfPerformanceDate->f:format.date()}" /><br />
+<label for="endPeriodOfPerformanceDate">
+	<f:translate key="tx_invoicr_domain_model_invoice.end_period_of_performance_date" />
+</label><br />
+	<f:form.textfield property="endPeriodOfPerformanceDate"  value="{invoice.endPeriodOfPerformanceDate->f:format.date()}" /><br />
+<label for="invoiceDate">
+	<f:translate key="tx_invoicr_domain_model_invoice.invoice_date" />
+</label><br />
+	<f:form.textfield property="invoiceDate"  value="{invoice.invoiceDate->f:format.date()}" /><br />
+<label for="termsOfPayment">
+	<f:translate key="tx_invoicr_domain_model_invoice.terms_of_payment" />
+</label><br />
+	<f:form.textfield property="termsOfPayment" /><br />
+<label for="wasSentAt">
+	<f:translate key="tx_invoicr_domain_model_invoice.was_sent_at" />
+</label><br />
+	<f:form.textfield property="wasSentAt"  value="{invoice.wasSentAt->f:format.date()}" /><br />
+<label for="wasPaidAt">
+	<f:translate key="tx_invoicr_domain_model_invoice.was_paid_at" />
+</label><br />
+	<f:form.textfield property="wasPaidAt"  value="{invoice.wasPaidAt->f:format.date()}" /><br />
+<label for="invoicePdf">
+	<f:translate key="tx_invoicr_domain_model_invoice.invoice_pdf" />
+</label><br />
+	<span>File upload is not implemented!</span><br /><br />

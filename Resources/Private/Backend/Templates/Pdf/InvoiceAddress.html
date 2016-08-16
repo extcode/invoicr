@@ -1,0 +1,11 @@
+<f:if condition="{invoice.customer.company}">
+{invoice.customer.company.name} <br>
+</f:if>
+<f:if condition="{invoice.customer.contact}">
+{invoice.customer.contact.firstName} {invoice.customer.contact.lastName} <br>
+</f:if>
+{invoice.customer.address.street} {invoice.customer.address.streetNumber}<br><br>
+{invoice.customer.address.zip} {invoice.customer.address.city} <br>
+<f:if condition="{invoice.customer.address.country}">
+{invoice.customer.address.address}
+</f:if>

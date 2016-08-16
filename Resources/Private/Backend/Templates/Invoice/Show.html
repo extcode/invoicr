@@ -1,0 +1,76 @@
+<f:layout name="Default"/>
+
+<f:section name="actions">
+    <span class="btn btn-default btn-sm">
+        <f:be.buttons.icon
+                uri="{f:uri.action(action:'list')}"
+                icon="actions-close"/>
+    </span>
+
+    <span class="btn btn-default btn-sm">
+        <f:be.buttons.icon
+                uri="{f:uri.action(action:'edit', arguments:{invoice : invoice})}"
+                icon="actions-open"/>
+    </span>
+
+    <span class="btn btn-default btn-sm">
+        <f:link.action action="generateInvoiceDocument" arguments="{invoice : invoice}">
+            <f:translate key="tx_invoicr.controller.invoice.action.generateInvoiceDocument"/>
+        </f:link.action>
+    </span>
+</f:section>
+
+<f:section name="content">
+    <f:flashMessages renderMode="div"/>
+
+    <f:render partial="Invoice/Properties" arguments="{invoice:invoice}"/>
+
+    <table class="tx_invoicr_item typo3-dblist">
+        <tr class="t3-row-header">
+            <th>
+                <f:translate key="tx_invoicr_domain_model_item.sku"/>
+            </th>
+            <th>
+                <f:translate key="tx_invoicr_domain_model_item.title"/>
+            </th>
+            <th>
+                <f:translate key="tx_invoicr_domain_model_item.quantity"/>
+            </th>
+            <th>
+                <f:translate key="tx_invoicr_domain_model_item.tax"/>
+            </th>
+            <th>
+                <f:translate key="tx_invoicr_domain_model_item.price"/>
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+
+        <f:for each="{invoice.items}" as="item">
+            <tr>
+                <td>
+                    {item.sku}
+                </td>
+                <td>
+                    {item.title}
+                </td>
+                <td>
+                    {item.quantity}
+                </td>
+                <td>
+                    <f:format.currency>{item.tax}</f:format.currency>
+                </td>
+                <td>
+                    <f:format.currency>{item.price}</f:format.currency>
+                </td>
+                <td>
+                    <f:link.action controller="Item" action="show" arguments="{item : item}">Show</f:link.action>
+                </td>
+                <td>
+                    <f:link.action controller="Item" action="edit" arguments="{item : item}">Edit</f:link.action>
+                </td>
+            </tr>
+        </f:for>
+    </table>
+
+</f:section>

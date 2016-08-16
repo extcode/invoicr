@@ -1,0 +1,70 @@
+<f:layout name="Default"/>
+
+<f:section name="actions">
+    <span class="btn btn-default btn-sm">
+        <f:be.buttons.icon
+                uri="{f:uri.action(action:'new', arguments:{filter: arguments.filter})}"
+                icon="actions-document-new"/>
+    </span>
+</f:section>
+
+<f:section name="content">
+    <f:flashMessages renderMode="div"/>
+
+    <f:render partial="Invoice/Filter/List" arguments="{piVars: piVars, action: 'list'}"/>
+
+    <table class="tx_invoicr table table-striped table-hover">
+        <thead>
+        <tr class="t3-row-header">
+            <th>
+                <f:translate key="tx_invoicr_domain_model_invoice.customer"/>
+            </th>
+            <th>
+                <f:translate key="tx_invoicr_domain_model_invoice.invoice_number"/>
+            </th>
+            <th>
+                <f:translate key="tx_invoicr_domain_model_invoice.invoice_date"/>
+            </th>
+            <th>
+                <f:translate key="tx_invoicr_domain_model_invoice.title"/>
+            </th>
+            <th>s</th>
+            <th>p</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <f:for each="{invoices}" as="invoice">
+            <tr>
+                <td>
+                    <f:if condition="{invoice.customer}">
+                        {invoice.customer.number}
+                    </f:if>
+                </td>
+                <td>
+                    {invoice.invoiceNumber}
+                </td>
+                <td>
+                    {invoice.invoiceDate -> f:format.date()}
+                </td>
+                <td>
+                    {invoice.title}
+                </td>
+                <td>
+                    {invoice.wasSentAt -> f:format.date()}
+                </td>
+                <td>
+                    {invoice.wasPaidAt -> f:format.date()}
+                </td>
+                <td>
+                    <span class="btn btn-default btn-sm">
+                        <f:be.buttons.icon
+                                uri="{f:uri.action(action:'show', arguments:{invoice : invoice})}"
+                                icon="actions-view"/>
+                    </span>
+                </td>
+            </tr>
+        </f:for>
+        </tbody>
+    </table>
+</f:section>

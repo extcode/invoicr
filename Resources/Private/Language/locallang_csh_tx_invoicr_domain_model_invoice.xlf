@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-11-27T13:38:31Z" product-name="invoicr">
+		<header/>
+		<body>
+			<trans-unit id="title.description">
+				<source>title</source>
+			</trans-unit>
+			<trans-unit id="description.description">
+				<source>description</source>
+			</trans-unit>
+			<trans-unit id="begin_period_of_performance_date.description">
+				<source>beginPeriodOfPerformanceDate</source>
+			</trans-unit>
+			<trans-unit id="end_period_of_performance_date.description">
+				<source>endPeriodOfPerformanceDate</source>
+			</trans-unit>
+			<trans-unit id="invoice_date.description">
+				<source>invoiceDate</source>
+			</trans-unit>
+			<trans-unit id="terms_of_payment.description">
+				<source>termsOfPayment</source>
+			</trans-unit>
+			<trans-unit id="was_sent_at.description">
+				<source>wasSentAt</source>
+			</trans-unit>
+			<trans-unit id="was_paid_at.description">
+				<source>wasPaidAt</source>
+			</trans-unit>
+			<trans-unit id="invoice_pdf.description">
+				<source>invoicePdf</source>
+			</trans-unit>
+			<trans-unit id="items.description">
+				<source>items</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,20 @@
+<f:layout name="Default"/>
+
+<f:section name="actions">
+    <span class="btn btn-default btn-sm">
+        <f:be.buttons.icon
+                uri="{f:uri.action(action:'list')}"
+                icon="actions-close"/>
+    </span>
+</f:section>
+
+<f:section name="content">
+    <f:flashMessages renderMode="div"/>
+
+    <f:render partial="FormErrors" arguments="{object:Invoice}"/>
+
+    <f:form action="create" enctype="multipart/form-data" name="newInvoice" object="{newInvoice}">
+        <f:render partial="Invoice/FormFields"/>
+        <f:form.submit value="Create new"/>
+    </f:form>
+</f:section>

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2016-08-15T16:42:47Z" product-name="invoicr">
+        <header/>
+        <body>
+            <trans-unit id="tx_invoicr.module.main">
+                <source>Invoicr</source>
+                <target>Invoicr</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr.module.invoices">
+                <source>Invoices</source>
+                <target>Rechnungen</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr.module.customer">
+                <source>Customer</source>
+                <target>Kunden</target>
+            </trans-unit>
+
+            <trans-unit id="tx_invoicr_domain_model_invoice">
+                <source>Invoice</source>
+                <target>Rechnung</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.palette.period_of_performance">
+                <source>Period Of Performance</source>
+                <target>Leistungszeitraum</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.palette.offer_data">
+                <source>Offer Data</source>
+                <target>Angebotsdaten</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.palette.invoice_data">
+                <source>Invoice Data</source>
+                <target>Rechnungsdaten</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.dateFormat">
+                <source>m/d/Y</source>
+                <target>d.m.Y</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.customer">
+                <source>Customer</source>
+                <target>Kunde</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.title">
+                <source>Title</source>
+                <target>Titel</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.description">
+                <source>Description</source>
+                <target>Beschreibung</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.content_above">
+                <source>Content (above)</source>
+                <target>Inhalt (oberhalb)</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.content_below">
+                <source>Content (below)</source>
+                <target>Inhalt (unterhalb)</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.begin_period_of_performance_date">
+                <source>Begin Date</source>
+                <target>Startdatum</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.end_period_of_performance_date">
+                <source>End Date</source>
+                <target>Enddatum</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.offer_date">
+                <source>Offer Date</source>
+                <target>Angebotsdatum</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.offer_number">
+                <source>Offer Number</source>
+                <target>Angebotsnummer</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.invoice_date">
+                <source>Invoice Date</source>
+                <target>Rechnungsdatum</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.invoice_number">
+                <source>Invoice Number</source>
+                <target>Rechnungsnummer</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.type_of_payment">
+                <source>Type Of Payment</source>
+                <target>Art der Bezahlung</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.type_of_payment.direct_debit">
+                <source>Direct Debit</source>
+                <target>Lastschrift</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.type_of_payment.transfer">
+                <source>Transfer</source>
+                <target>Überweisung</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.terms_of_payment">
+                <source>Terms Of Payment</source>
+                <target>Zahlungsziel</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.was_sent_at">
+                <source>Was Sent At</source>
+                <target>versendet am</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.was_paid_at">
+                <source>Was Paid At</source>
+                <target>bezahlt am</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.invoice_pdf">
+                <source>Invoice (PDF)</source>
+                <target>Rechnung (PDF)</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.items">
+                <source>Items</source>
+                <target>Posten</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.price">
+                <source>Price</source>
+                <target>Preis</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.tax">
+                <source>Tax</source>
+                <target>Steuer</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.total_price">
+                <source>Total Price</source>
+                <target>Gesamtpreis</target>
+            </trans-unit>
+
+            <trans-unit id="tx_invoicr_domain_model_item">
+                <source>Item</source>
+                <target>Posten</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_item.sku">
+                <source>Sku</source>
+                <target>Artikelnummer</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_item.title">
+                <source>Title</source>
+                <target>Titel</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_item.description">
+                <source>Description</source>
+                <target>Beschreibung</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_item.quantity">
+                <source>Quantity</source>
+                <target>Anzahl</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_item.price">
+                <source>Price</source>
+                <target>Preis</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_item.tax">
+                <source>Tax</source>
+                <target>Steuer</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_item.total_price">
+                <source>Total Price</source>
+                <target>Gesamtpreis</target>
+            </trans-unit>
+
+            <trans-unit id="tx_invoicr_domain_model_customer">
+                <source>Customer</source>
+                <target>Kunden</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_customer.number">
+                <source>Customer Number</source>
+                <target>Kundennummer</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_customer.company">
+                <source>Company</source>
+                <target>Firma</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_customer.contact">
+                <source>Contact</source>
+                <target>Kontakt</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_customer.address">
+                <source>Address</source>
+                <target>Adresse</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_customer.mandates">
+                <source>Mandates</source>
+                <target>Mandate</target>
+            </trans-unit>
+
+            <trans-unit id="tx_invoicr_domain_model_mandate">
+                <source>Mandate</source>
+                <target>Mandate</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_mandate.reference">
+                <source>Mandate Reference</source>
+                <target>Mandatsreferenz</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_mandate.mandate_type">
+                <source>Mandate Type</source>
+                <target>Mandatstyp</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_mandate.mandate_type.recurring_payment">
+                <source>Mandate reference for recurring payment</source>
+                <target>Mandatsreferenz für wiederkehrende Zahlungen</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_mandate.mandate_type.one_off_payment">
+                <source>Mandate reference for one-off payment</source>
+                <target>Mandatsreferenz für einmalige Zahlungen</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_mandate.granting_date">
+                <source>Granting Date</source>
+                <target>Datum der Erteilung</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_mandate.revocation_date">
+                <source>Revocation Date</source>
+                <target>Datum des Widerrufs</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_mandate.account_holder">
+                <source>Account Holder</source>
+                <target>Kontoinhaber</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_mandate.credit_institution">
+                <source>Credit Institution</source>
+                <target>Kreditinstitut</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_mandate.iban">
+                <source>IBAN</source>
+                <target>IBAN</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_mandate.bic">
+                <source>BIC</source>
+                <target>BIC</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

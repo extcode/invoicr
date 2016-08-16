@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2014-11-27T13:38:31Z" product-name="invoicr">
+        <header/>
+        <body>
+            <trans-unit id="tx_invoicr.controller.invoice.action.filterInvoices">
+                <source>Filter Invoice</source>
+                <target>Rechnung filtern</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr.controller.invoice.action.generateInvoiceDocument">
+                <source>Generate Invoice</source>
+                <target>Rechnung erstellen</target>
+            </trans-unit>
+
+           <trans-unit id="tx_invoicr_domain_model_invoice">
+                <source>Invoice</source>
+                <target>Rechnung</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.dateFormat">
+                <source>m/d/Y</source>
+                <target>d.m.Y</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.customer">
+                <source>Customer</source>
+                <target>Kunde</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.title">
+                <source>Title</source>
+                <target>Titel</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.description">
+                <source>Description</source>
+                <target>Beschreibung</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.period_of_performance">
+                <source>Period Of Performance</source>
+                <target>Leitungszeitraum</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.begin_period_of_performance_date">
+                <source>Begin Period Of Performance Date</source>
+                <target>Beginn des Leistungszeitraums</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.end_period_of_performance_date">
+                <source>End Period Of Performance Date</source>
+                <target>Ende des Leistungszeitraums</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.invoice_number">
+                <source>Invoice Number</source>
+                <target>Rechnungsnummer</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.invoice_date">
+                <source>Invoice Date</source>
+                <target>Rechnungsdatum</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.type_of_payment">
+                <source>Type Of Payment</source>
+                <target>Art der Bezahlung</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.type_of_payment.direct_debit">
+                <source>Direct Debit</source>
+                <target>Lastschrift</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.type_of_payment.transfer">
+                <source>Transfer</source>
+                <target>Überweisung</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.terms_of_payment">
+                <source>Terms Of Payment</source>
+                <target>Zahlungsziel</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.was_sent_at">
+                <source>Was Sent At</source>
+                <target>versendet am</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.was_paid_at">
+                <source>Was Paid At</source>
+                <target>bezahlt am</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.invoice_pdf">
+                <source>Invoice (PDF)</source>
+                <target>Rechnung (PDF)</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.items">
+                <source>Items</source>
+                <target>Posten</target>
+            </trans-unit>
+
+            <trans-unit id="tx_invoicr_domain_model_item">
+                <source>Item</source>
+                <target>Posten</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_item.sku">
+                <source>Sku</source>
+                <target>Artikelnummer</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_item.title">
+                <source>Title</source>
+                <target>Titel</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_item.description">
+                <source>Description</source>
+                <target>Beschreibung</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_item.quantity">
+                <source>Quantity</source>
+                <target>Anzahl</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_item.price">
+                <source>Price</source>
+                <target>Preis</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_item.tax">
+                <source>Tax</source>
+                <target>Steuern</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_item.total_price">
+                <source>Total Price</source>
+                <target>Gesamtpreis</target>
+            </trans-unit>
+
+            <trans-unit id="tx_invoicr_domain_model_customer">
+                <source>Customer</source>
+                <target>Kunden</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_customer.number">
+                <source>Customer Number</source>
+                <target>Kundennummer</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

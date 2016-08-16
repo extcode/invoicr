@@ -1,0 +1,17 @@
+{namespace invoicr=Extcode\Invoicr\ViewHelpers}
+
+<f:layout name="Default"/>
+
+<f:section name="content">
+    <f:link.action controller="Invoice" action="show" arguments="{invoice : item.invoice}">Invoice Show</f:link.action>
+    <f:link.action controller="Item" action="show" arguments="{item : item}">Item Show</f:link.action>
+
+    <f:flashMessages renderMode="div"/>
+
+    <f:render partial="FormErrors" arguments="{object:Item}"/>
+
+    <f:form action="update" name="item" object="{item}">
+        <f:render partial="Item/FormFields" arguments="{item:item}"/>
+        <f:form.submit value="Save"/>
+    </f:form>
+</f:section>

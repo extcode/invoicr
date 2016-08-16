@@ -1,0 +1,23 @@
+module.tx_invoicr {
+    view {
+        templateRootPath = EXT:invoicr/Resources/Private/Backend/Templates/
+        partialRootPath = EXT:invoicr/Resources/Private/Backend/Partials/
+        layoutRootPath = EXT:invoicr/Resources/Private/Backend/Layouts/
+    }
+
+    persistence {
+        storagePid =
+    }
+}
+
+plugin.tx_invoicr {
+    view {
+        templateRootPath = EXT:invoicr/Resources/Private/Templates/
+        partialRootPath = EXT:invoicr/Resources/Private/Partials/
+        layoutRootPath = EXT:invoicr/Resources/Private/Layouts/
+    }
+
+    persistence {
+        storagePid =
+    }
+}

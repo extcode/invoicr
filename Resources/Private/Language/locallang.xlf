@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2014-11-27T13:38:31Z" product-name="invoicr">
+        <header/>
+        <body>
+            <trans-unit id="tx_invoicr.controller.invoice.action.filterInvoices">
+                <source>Filter Invoice</source>
+            </trans-unit>
+            <trans-unit id="tx_invoicr.controller.invoice.action.generateInvoiceDocument">
+                <source>Generate Invoice</source>
+            </trans-unit>
+
+            <trans-unit id="tx_invoicr_domain_model_invoice">
+                <source>Invoice</source>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.dateFormat">
+                <source>m/d/Y</source>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.customer">
+                <source>Customer</source>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.title">
+                <source>Title</source>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.description">
+                <source>Description</source>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.period_of_performance">
+                <source>Period Of Performance</source>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.begin_period_of_performance_date">
+                <source>Begin Period Of Performance Date</source>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.end_period_of_performance_date">
+                <source>End Period Of Performance Date</source>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.invoice_number">
+                <source>Invoice Number</source>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.invoice_date">
+                <source>Invoice Date</source>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.type_of_payment">
+                <source>Type Of Payment</source>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.type_of_payment.direct_debit">
+                <source>Direct Debit</source>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.type_of_payment.transfer">
+                <source>Transfer</source>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.terms_of_payment">
+                <source>Terms Of Payment</source>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.was_sent_at">
+                <source>Was Sent At</source>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.was_paid_at">
+                <source>Was Paid At</source>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.invoice_pdf">
+                <source>Invoice (PDF)</source>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_invoice.items">
+                <source>Items</source>
+            </trans-unit>
+
+            <trans-unit id="tx_invoicr_domain_model_item">
+                <source>Item</source>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_item.sku">
+                <source>Sku</source>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_item.title">
+                <source>Title</source>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_item.description">
+                <source>Description</source>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_item.quantity">
+                <source>Quantity</source>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_item.price">
+                <source>Price</source>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_item.tax">
+                <source>Tax</source>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_item.total_price">
+                <source>Total Price</source>
+            </trans-unit>
+
+            <trans-unit id="tx_invoicr_domain_model_customer">
+                <source>Customer</source>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_customer.number">
+                <source>Customer Number</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
