@@ -9,6 +9,9 @@
             <trans-unit id="tx_invoicr.controller.invoice.action.generateInvoiceDocument">
                 <source>Generate Invoice</source>
             </trans-unit>
+            <trans-unit id="tx_invoicr.controller.invoice.action.downloadInvoiceDocument">
+                <source>Download Invoice</source>
+            </trans-unit>
 
             <trans-unit id="tx_invoicr_domain_model_invoice">
                 <source>Invoice</source>
@@ -69,7 +72,7 @@
                 <source>Item</source>
             </trans-unit>
             <trans-unit id="tx_invoicr_domain_model_item.sku">
-                <source>Sku</source>
+                <source>SKU</source>
             </trans-unit>
             <trans-unit id="tx_invoicr_domain_model_item.title">
                 <source>Title</source>
@@ -83,11 +86,17 @@
             <trans-unit id="tx_invoicr_domain_model_item.price">
                 <source>Price</source>
             </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_item.total_price">
+                <source>Total Price</source>
+            </trans-unit>
             <trans-unit id="tx_invoicr_domain_model_item.tax">
                 <source>Tax</source>
             </trans-unit>
-            <trans-unit id="tx_invoicr_domain_model_item.total_price">
-                <source>Total Price</source>
+            <trans-unit id="tx_invoicr_domain_model_item.total_price_net">
+                <source>Total Price (net)</source>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_item.total_price_gross">
+                <source>Total Price (gross)</source>
             </trans-unit>
 
             <trans-unit id="tx_invoicr_domain_model_customer">

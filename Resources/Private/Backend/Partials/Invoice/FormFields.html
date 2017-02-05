@@ -1,69 +1,89 @@
 <p>
-	<label for="invoiceNumber">
-		<f:translate key="tx_invoicr_domain_model_invoice.invoice_number" />
-	</label>
-	<f:if condition="{invoice.invoiceNumber}">
-		<f:then>
-			{invoice.invoiceNumber}
-		</f:then>
-		<f:else>
-			<f:form.textfield property="invoiceNumber" />
-		</f:else>
-	</f:if>
+    <label for="invoiceNumber">
+        <f:translate key="tx_invoicr_domain_model_invoice.invoice_number"/>
+    </label>
+    <f:if condition="{invoice.invoiceNumber}">
+        <f:then>
+            {invoice.invoiceNumber}
+        </f:then>
+        <f:else>
+            <f:form.textfield property="invoiceNumber"/>
+        </f:else>
+    </f:if>
 </p>
 
 <p>
-	<label for="title">
-		<f:translate key="tx_invoicr_domain_model_invoice.title" />
-	</label>
-	<f:form.textfield property="title" />
+    <label for="title">
+        <f:translate key="tx_invoicr_domain_model_invoice.title"/>
+    </label>
+    <f:form.textfield property="title"/>
 </p>
 
 <p>
-	<label for="description">
-		<f:translate key="tx_invoicr_domain_model_invoice.description" />
-	</label>
-	<f:form.textarea property="description" cols="40" rows="15" />
+    <label for="description">
+        <f:translate key="tx_invoicr_domain_model_invoice.description"/>
+    </label>
+    <f:form.textarea property="description" cols="40" rows="15"/>
 </p>
 
 <p>
-	<label for="beginPeriodOfPerformanceDate">
-		<f:translate key="tx_invoicr_domain_model_invoice.begin_period_of_performance_date" /> (<f:translate key="tx_invoicr_domain_model_invoice.dateFormat" />)
-	</label>
-	<f:form.textfield property="beginPeriodOfPerformanceDate" value="{invoice.beginPeriodOfPerformanceDate->f:format.date( format: '{f:translate(key:\'tx_invoicr_domain_model_invoice.dateFormat\')}' )}" />
+    <label for="beginPeriodOfPerformanceDate">
+        <f:translate key="tx_invoicr_domain_model_invoice.begin_period_of_performance_date"/>
+        (
+        <f:translate key="tx_invoicr_domain_model_invoice.dateFormat"/>
+        )
+    </label>
+    <f:form.textfield property="beginPeriodOfPerformanceDate"
+                      value="{invoice.beginPeriodOfPerformanceDate->f:format.date( format: '{f:translate(key:\'tx_invoicr_domain_model_invoice.dateFormat\')}' )}"/>
 </p>
 
 <p>
-	<label for="endPeriodOfPerformanceDate">
-		<f:translate key="tx_invoicr_domain_model_invoice.end_period_of_performance_date" /> (<f:translate key="tx_invoicr_domain_model_invoice.dateFormat" />)
-	</label>
-	<f:form.textfield property="endPeriodOfPerformanceDate" value="{invoice.endPeriodOfPerformanceDate->f:format.date( format: '{f:translate(key:\'tx_invoicr_domain_model_invoice.dateFormat\')}' )}" />
+    <label for="endPeriodOfPerformanceDate">
+        <f:translate key="tx_invoicr_domain_model_invoice.end_period_of_performance_date"/>
+        (
+        <f:translate key="tx_invoicr_domain_model_invoice.dateFormat"/>
+        )
+    </label>
+    <f:form.textfield property="endPeriodOfPerformanceDate"
+                      value="{invoice.endPeriodOfPerformanceDate->f:format.date( format: '{f:translate(key:\'tx_invoicr_domain_model_invoice.dateFormat\')}' )}"/>
 </p>
 
 <p>
-	<label for="invoiceDate">
-		<f:translate key="tx_invoicr_domain_model_invoice.invoice_date" /> (<f:translate key="tx_invoicr_domain_model_invoice.dateFormat" />)
-	</label>
-	<f:form.textfield property="invoiceDate" value="{invoice.invoiceDate->f:format.date( format: '{f:translate(key:\'tx_invoicr_domain_model_invoice.dateFormat\')}' )}" />
+    <label for="invoiceDate">
+        <f:translate key="tx_invoicr_domain_model_invoice.invoice_date"/>
+        (
+        <f:translate key="tx_invoicr_domain_model_invoice.dateFormat"/>
+        )
+    </label>
+    <f:form.textfield property="invoiceDate"
+                      value="{invoice.invoiceDate->f:format.date( format: '{f:translate(key:\'tx_invoicr_domain_model_invoice.dateFormat\')}' )}"/>
 </p>
 
 <p>
-	<label for="termsOfPayment">
-		<f:translate key="tx_invoicr_domain_model_invoice.terms_of_payment" />
-	</label>
-	<f:form.textfield property="termsOfPayment" />
+    <label for="termsOfPayment">
+        <f:translate key="tx_invoicr_domain_model_invoice.terms_of_payment"/>
+    </label>
+    <f:form.textfield property="termsOfPayment"/>
 </p>
 
 <p>
-	<label for="wasSentAt">
-		<f:translate key="tx_invoicr_domain_model_invoice.was_sent_at" /> (<f:translate key="tx_invoicr_domain_model_invoice.dateFormat" />)
-	</label>
-	<f:form.textfield property="wasSentAt"  value="{invoice.wasSentAt->f:format.date()}" /><br />
+    <label for="wasSentAt">
+        <f:translate key="tx_invoicr_domain_model_invoice.was_sent_at"/>
+        (
+        <f:translate key="tx_invoicr_domain_model_invoice.dateFormat"/>
+        )
+    </label>
+    <f:form.textfield property="wasSentAt" value="{invoice.wasSentAt->f:format.date()}"/>
+    <br/>
 </p>
 
 <p>
-	<label for="wasPaidAt">
-		<f:translate key="tx_invoicr_domain_model_invoice.was_paid_at" /> (<f:translate key="tx_invoicr_domain_model_invoice.dateFormat" />)
-	</label>
-	<f:form.textfield property="wasPaidAt" value="{invoice.wasPaidAt->f:format.date( format: '{f:translate(key:\'tx_invoicr_domain_model_invoice.dateFormat\')}' )}" />
+    <label for="wasPaidAt">
+        <f:translate key="tx_invoicr_domain_model_invoice.was_paid_at"/>
+        (
+        <f:translate key="tx_invoicr_domain_model_invoice.dateFormat"/>
+        )
+    </label>
+    <f:form.textfield property="wasPaidAt"
+                      value="{invoice.wasPaidAt->f:format.date( format: '{f:translate(key:\'tx_invoicr_domain_model_invoice.dateFormat\')}' )}"/>
 </p>

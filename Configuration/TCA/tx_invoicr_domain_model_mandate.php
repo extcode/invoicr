@@ -8,6 +8,8 @@ return [
     'ctrl' => [
         'title' => 'LLL:EXT:invoicr/Resources/Private/Language/locallang_db.xlf:tx_invoicr_domain_model_mandate',
         'label' => 'reference',
+        'label_alt' => 'mandate_type',
+        'label_alt_force' => 1,
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
@@ -15,6 +17,8 @@ return [
 
         'versioningWS' => 2,
         'versioning_followPages' => true,
+
+        'hideTable' => true,
 
         'delete' => 'deleted',
         'enablecolumns' => [

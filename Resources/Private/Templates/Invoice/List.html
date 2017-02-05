@@ -1,53 +1,93 @@
-
-<f:layout name="Default" />
-
-This Template is responsible for creating a table of domain objects.
-
-If you modify this template, do not forget to change the overwrite settings
-in /Configuration/ExtensionBuilder/settings.yaml:
-  Resources:
-    Private:
-      Templates:
-        List.html: keep
-
-Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+<f:layout name="Default"/>
 
 <f:section name="main">
-<h1>Listing for Invoice</h1>
 
-<f:flashMessages />
+    <f:flashMessages/>
 
-<table  class="tx_invoicr" >
-	<tr>
-		<th><f:translate key="tx_invoicr_domain_model_invoice.title" /></th>
-		<th><f:translate key="tx_invoicr_domain_model_invoice.description" /></th>
-		<th><f:translate key="tx_invoicr_domain_model_invoice.begin_period_of_performance_date" /></th>
-		<th><f:translate key="tx_invoicr_domain_model_invoice.end_period_of_performance_date" /></th>
-		<th><f:translate key="tx_invoicr_domain_model_invoice.invoice_date" /></th>
-		<th><f:translate key="tx_invoicr_domain_model_invoice.terms_of_payment" /></th>
-		<th><f:translate key="tx_invoicr_domain_model_invoice.was_sent_at" /></th>
-		<th><f:translate key="tx_invoicr_domain_model_invoice.was_paid_at" /></th>
-		<th><f:translate key="tx_invoicr_domain_model_invoice.invoice_pdf" /></th>
-		<th> </th>
-		<th> </th>
-	</tr>
+    <table class="tx_invoicr">
+        <tr>
+            <th>
+                <f:translate key="tx_invoicr_domain_model_invoice.title"/>
+            </th>
+            <th>
+                <f:translate key="tx_invoicr_domain_model_invoice.description"/>
+            </th>
+            <th>
+                <f:translate key="tx_invoicr_domain_model_invoice.begin_period_of_performance_date"/>
+            </th>
+            <th>
+                <f:translate key="tx_invoicr_domain_model_invoice.end_period_of_performance_date"/>
+            </th>
+            <th>
+                <f:translate key="tx_invoicr_domain_model_invoice.invoice_date"/>
+            </th>
+            <th>
+                <f:translate key="tx_invoicr_domain_model_invoice.terms_of_payment"/>
+            </th>
+            <th>
+                <f:translate key="tx_invoicr_domain_model_invoice.was_sent_at"/>
+            </th>
+            <th>
+                <f:translate key="tx_invoicr_domain_model_invoice.was_paid_at"/>
+            </th>
+            <th>
+                <f:translate key="tx_invoicr_domain_model_invoice.invoice_pdf"/>
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
 
-	<f:for each="{invoices}" as="invoice">
-		<tr>
-			<td><f:link.action action="show" arguments="{invoice : invoice}"> {invoice.title}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{invoice : invoice}"> {invoice.description}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{invoice : invoice}"> {invoice.beginPeriodOfPerformanceDate -> f:format.date()}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{invoice : invoice}"> {invoice.endPeriodOfPerformanceDate -> f:format.date()}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{invoice : invoice}"> {invoice.invoiceDate -> f:format.date()}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{invoice : invoice}"> {invoice.termsOfPayment}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{invoice : invoice}"> {invoice.wasSentAt -> f:format.date()}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{invoice : invoice}"> {invoice.wasPaidAt -> f:format.date()}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{invoice : invoice}"> {invoice.invoicePdf.originalResource.name}</f:link.action></td>
-			<td><f:link.action action="edit" arguments="{invoice : invoice}">Edit</f:link.action></td>
-			<td><f:link.action action="delete" arguments="{invoice : invoice}">Delete</f:link.action></td>
-		</tr>
-	</f:for>
-</table>
+        <f:for each="{invoices}" as="invoice">
+            <tr>
+                <td>
+                    <f:link.action action="show" arguments="{invoice : invoice}"> {invoice.title}</f:link.action>
+                </td>
+                <td>
+                    <f:link.action action="show" arguments="{invoice : invoice}"> {invoice.description}</f:link.action>
+                </td>
+                <td>
+                    <f:link.action action="show" arguments="{invoice : invoice}"> {invoice.beginPeriodOfPerformanceDate
+                        -> f:format.date()}
+                    </f:link.action>
+                </td>
+                <td>
+                    <f:link.action action="show" arguments="{invoice : invoice}"> {invoice.endPeriodOfPerformanceDate ->
+                        f:format.date()}
+                    </f:link.action>
+                </td>
+                <td>
+                    <f:link.action action="show" arguments="{invoice : invoice}"> {invoice.invoiceDate ->
+                        f:format.date()}
+                    </f:link.action>
+                </td>
+                <td>
+                    <f:link.action action="show" arguments="{invoice : invoice}"> {invoice.termsOfPayment}
+                    </f:link.action>
+                </td>
+                <td>
+                    <f:link.action action="show" arguments="{invoice : invoice}"> {invoice.wasSentAt ->
+                        f:format.date()}
+                    </f:link.action>
+                </td>
+                <td>
+                    <f:link.action action="show" arguments="{invoice : invoice}"> {invoice.wasPaidAt ->
+                        f:format.date()}
+                    </f:link.action>
+                </td>
+                <td>
+                    <f:link.action action="show" arguments="{invoice : invoice}">
+                        {invoice.invoicePdf.originalResource.name}
+                    </f:link.action>
+                </td>
+                <td>
+                    <f:link.action action="edit" arguments="{invoice : invoice}">Edit</f:link.action>
+                </td>
+                <td>
+                    <f:link.action action="delete" arguments="{invoice : invoice}">Delete</f:link.action>
+                </td>
+            </tr>
+        </f:for>
+    </table>
 
-<f:link.action action="new">New Invoice</f:link.action>
+    <f:link.action action="new">New Invoice</f:link.action>
 </f:section>

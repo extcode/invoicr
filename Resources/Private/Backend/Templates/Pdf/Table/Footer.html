@@ -3,22 +3,24 @@
         Betrag (Netto)
     </td>
     <td colspan="2" style="border: 1px solid #ededed; text-align: right;">
-        <f:format.currency>{invoice.totalPrice} €</f:format.currency>
+        <f:format.currency currencySign="€">{invoice.priceNet}</f:format.currency>
     </td>
 </tr>
+<f:for each="{invoice.Taxes}" as="tax" key="taxValue">
+    <tr>
+        <td colspan="3" style="border: 1px solid #ededed; text-align: right;">
+            zzgl. {taxValue}% MwSt.
+        </td>
+        <td colspan="2" style="border: 1px solid #ededed; text-align: right;">
+            <f:format.currency currencySign="€">{tax}</f:format.currency>
+        </td>
+    </tr>
+</f:for>
 <tr>
-    <td colspan="3" style="border: 1px solid #ededed; text-align: right;">
-        zzgl. 19% MwSt.
-    </td>
-    <td colspan="2" style="border: 1px solid #ededed; text-align: right;">
-        <f:format.currency>{invoice.tax} €</f:format.currency>
-    </td>
-</tr>
-<tr>
-    <td colspan="3" style="border: 1px solid #ededed; text-align: right;">
+    <td colspan="3" style="border: 1px solid #ededed; text-align: right; color: #154251; font-weight: bold;">
         Betrag (Brutto)
     </td>
-    <td colspan="2" style="border: 1px solid #ededed; text-align: right; color: #154251;">
-        <f:format.currency>{invoice.totalPrice} €</f:format.currency>
+    <td colspan="2" style="border: 1px solid #ededed; text-align: right; color: #154251; font-weight: bold;">
+        <f:format.currency currencySign="€">{invoice.priceGross}</f:format.currency>
     </td>
 </tr>

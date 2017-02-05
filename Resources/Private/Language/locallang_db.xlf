@@ -99,7 +99,7 @@
                 <source>Item</source>
             </trans-unit>
             <trans-unit id="tx_invoicr_domain_model_item.sku">
-                <source>Sku</source>
+                <source>SKU</source>
             </trans-unit>
             <trans-unit id="tx_invoicr_domain_model_item.title">
                 <source>Title</source>

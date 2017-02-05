@@ -231,7 +231,7 @@ class InvoiceController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     }
 
     /**
-     * action generate InvoiceDocument
+     * Generate InvoiceDocument Action
      *
      * @param \Extcode\Invoicr\Domain\Model\Invoice $invoice
      * @return void
@@ -245,9 +245,47 @@ class InvoiceController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
         $pdf = $pdfService->createPdf($invoice);
 
         if ($pdf) {
-            $invoice->setInvoicePdf($pdf);
+            $invoice->addInvoicePdf($pdf);
         }
 
-        $this->redirect('list');
+        $this->redirect('show', null, null, ['invoice' => $invoice]);
+    }
+
+    /**
+     * Downlaod InvoiceDocument Action
+     *
+     * @param \Extcode\Invoicr\Domain\Model\Invoice $invoice
+     *
+     * @return void
+     */
+    public function downloadInvoiceDocumentAction(\Extcode\Invoicr\Domain\Model\Invoice $invoice)
+    {
+        $pdfs = $invoice->getInvoicePdfs();
+        $originalPdf = end($pdfs->toArray())->getOriginalResource();
+        $file = PATH_site . $originalPdf->getPublicUrl();
+
+        $fileName = $originalPdf->getName();
+
+        if (is_file($file)) {
+            $fileLen = filesize($file);
+
+            $headers = [
+                'Pragma' => 'public',
+                'Expires' => 0,
+                'Cache-Control' => 'must-revalidate, post-check=0, pre-check=0',
+                'Content-Description' => 'File Transfer',
+                'Content-Type' => 'application/pdf',
+                'Content-Disposition' => 'attachment; filename="' . $fileName . '"',
+                'Content-Transfer-Encoding' => 'binary',
+                'Content-Length' => $fileLen
+            ];
+
+            foreach ($headers as $header => $data) {
+                $this->response->setHeader($header, $data);
+            }
+
+            $this->response->sendHeaders();
+            @readfile($file);
+        }
     }
 }

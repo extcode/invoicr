@@ -130,7 +130,7 @@
                 <target>Posten</target>
             </trans-unit>
             <trans-unit id="tx_invoicr_domain_model_item.sku">
-                <source>Sku</source>
+                <source>SKU</source>
                 <target>Artikelnummer</target>
             </trans-unit>
             <trans-unit id="tx_invoicr_domain_model_item.title">
@@ -149,13 +149,13 @@
                 <source>Price</source>
                 <target>Preis</target>
             </trans-unit>
-            <trans-unit id="tx_invoicr_domain_model_item.tax">
-                <source>Tax</source>
-                <target>Steuer</target>
-            </trans-unit>
             <trans-unit id="tx_invoicr_domain_model_item.total_price">
                 <source>Total Price</source>
                 <target>Gesamtpreis</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_item.tax">
+                <source>Tax</source>
+                <target>Steuer</target>
             </trans-unit>
 
             <trans-unit id="tx_invoicr_domain_model_customer">

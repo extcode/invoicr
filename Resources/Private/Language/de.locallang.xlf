@@ -11,6 +11,10 @@
                 <source>Generate Invoice</source>
                 <target>Rechnung erstellen</target>
             </trans-unit>
+            <trans-unit id="tx_invoicr.controller.invoice.action.downloadInvoiceDocument">
+                <source>Download Invoice</source>
+                <target>Rechnung herunterladen</target>
+            </trans-unit>
 
            <trans-unit id="tx_invoicr_domain_model_invoice">
                 <source>Invoice</source>
@@ -90,7 +94,7 @@
                 <target>Posten</target>
             </trans-unit>
             <trans-unit id="tx_invoicr_domain_model_item.sku">
-                <source>Sku</source>
+                <source>SKU</source>
                 <target>Artikelnummer</target>
             </trans-unit>
             <trans-unit id="tx_invoicr_domain_model_item.title">
@@ -109,13 +113,21 @@
                 <source>Price</source>
                 <target>Preis</target>
             </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_item.total_price">
+                <source>Total Price</source>
+                <target>Gesamtpreis</target>
+            </trans-unit>
             <trans-unit id="tx_invoicr_domain_model_item.tax">
                 <source>Tax</source>
                 <target>Steuern</target>
             </trans-unit>
-            <trans-unit id="tx_invoicr_domain_model_item.total_price">
-                <source>Total Price</source>
-                <target>Gesamtpreis</target>
+            <trans-unit id="tx_invoicr_domain_model_item.total_price_net">
+                <source>Total Price (net)</source>
+                <target>Gesamtpreis (netto)</target>
+            </trans-unit>
+            <trans-unit id="tx_invoicr_domain_model_item.total_price_gross">
+                <source>Total Price (gross)</source>
+                <target>Gesamtpreis (brutto)</target>
             </trans-unit>
 
             <trans-unit id="tx_invoicr_domain_model_customer">

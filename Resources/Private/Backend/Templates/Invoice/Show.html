@@ -9,15 +9,23 @@
 
     <span class="btn btn-default btn-sm">
         <f:be.buttons.icon
-                uri="{f:uri.action(action:'edit', arguments:{invoice : invoice})}"
+                uri="{f:uri.action(action:'edit', arguments:{invoice: invoice})}"
                 icon="actions-open"/>
     </span>
 
     <span class="btn btn-default btn-sm">
-        <f:link.action action="generateInvoiceDocument" arguments="{invoice : invoice}">
+        <f:link.action action="generateInvoiceDocument" arguments="{invoice: invoice}">
             <f:translate key="tx_invoicr.controller.invoice.action.generateInvoiceDocument"/>
         </f:link.action>
     </span>
+
+    <f:if condition="{invoice.invoicePdfs}">
+        <span class="btn btn-default btn-sm">
+            <f:link.action action="downloadInvoiceDocument" arguments="{invoice: invoice}">
+                <f:translate key="tx_invoicr.controller.invoice.action.downloadInvoiceDocument"/>
+            </f:link.action>
+        </span>
+    </f:if>
 </f:section>
 
 <f:section name="content">
@@ -25,52 +33,87 @@
 
     <f:render partial="Invoice/Properties" arguments="{invoice:invoice}"/>
 
-    <table class="tx_invoicr_item typo3-dblist">
-        <tr class="t3-row-header">
-            <th>
-                <f:translate key="tx_invoicr_domain_model_item.sku"/>
-            </th>
-            <th>
-                <f:translate key="tx_invoicr_domain_model_item.title"/>
-            </th>
-            <th>
-                <f:translate key="tx_invoicr_domain_model_item.quantity"/>
-            </th>
-            <th>
-                <f:translate key="tx_invoicr_domain_model_item.tax"/>
-            </th>
-            <th>
-                <f:translate key="tx_invoicr_domain_model_item.price"/>
-            </th>
-            <th></th>
-            <th></th>
-        </tr>
-
-        <f:for each="{invoice.items}" as="item">
-            <tr>
-                <td>
-                    {item.sku}
-                </td>
-                <td>
-                    {item.title}
-                </td>
-                <td>
-                    {item.quantity}
-                </td>
-                <td>
-                    <f:format.currency>{item.tax}</f:format.currency>
-                </td>
-                <td>
-                    <f:format.currency>{item.price}</f:format.currency>
-                </td>
-                <td>
-                    <f:link.action controller="Item" action="show" arguments="{item : item}">Show</f:link.action>
-                </td>
-                <td>
-                    <f:link.action controller="Item" action="edit" arguments="{item : item}">Edit</f:link.action>
-                </td>
+    <table class="tx_invoicr_item typo3-dblist typo3-dblist table table-striped table-hover">
+        <thead>
+            <tr class="t3-row-header">
+                <th>
+                    <f:translate key="tx_invoicr_domain_model_item.sku"/>
+                </th>
+                <th>
+                    <f:translate key="tx_invoicr_domain_model_item.title"/>
+                </th>
+                <th>
+                    <f:translate key="tx_invoicr_domain_model_item.quantity"/>
+                </th>
+                <th>
+                    <f:translate key="tx_invoicr_domain_model_item.price"/>
+                </th>
+                <th>
+                    <f:translate key="tx_invoicr_domain_model_item.total_price_net"/>
+                </th>
+                <th>
+                    <f:translate key="tx_invoicr_domain_model_item.tax"/>
+                </th>
+                <th>
+                    <f:translate key="tx_invoicr_domain_model_item.total_price_gross"/>
+                </th>
+                <th></th>
             </tr>
-        </f:for>
+        </thead>
+        <tbody>
+            <f:for each="{invoice.items}" as="item">
+                <tr>
+                    <td>
+                        {item.sku}
+                    </td>
+                    <td>
+                        {item.title}
+                    </td>
+                    <td>
+                        {item.quantity}
+                    </td>
+                    <td>
+                        <f:format.currency currencySign="€">{item.price}</f:format.currency>
+                    </td>
+                    <td>
+                        <f:format.currency currencySign="€">{item.totalPriceNet}</f:format.currency>
+                    </td>
+                    <td>
+                        <f:format.number>{item.tax}</f:format.number> %
+                    </td>
+                    <td>
+                        <f:format.currency currencySign="€">{item.totalPriceGross}</f:format.currency>
+                    </td>
+                    <td>
+                        <span class="btn btn-default btn-sm">
+                            <f:be.buttons.icon
+                                    uri="{f:uri.action(action:'show', arguments:{item : item})}"
+                                    icon="actions-view"/>
+                        </span>
+                        <span class="btn btn-default btn-sm">
+                            <f:be.buttons.icon
+                                    uri="{f:uri.action(action:'edit', arguments:{item : item})}"
+                                    icon="actions-open"/>
+                        </span>
+                    </td>
+                </tr>
+            </f:for>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4">
+                    <f:translate key="tx_invoicr_domain_model_invoice.price"/>
+                </td>
+                <td>
+                    <f:format.currency currencySign="€">{invoice.priceNet}</f:format.currency>
+                </td>
+                <td></td>
+                <td>
+                    <f:format.currency currencySign="€">{invoice.priceGross}</f:format.currency>
+                </td>
+                <td></td>
+            </tr>
+        </tfoot>
     </table>
 
 </f:section>

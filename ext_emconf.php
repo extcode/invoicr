@@ -12,13 +12,13 @@ $EM_CONF[$_EXTKEY] = [
     'uploadfolder' => '1',
     'createDirs' => '',
     'clearCacheOnLoad' => 0,
-    'version' => '0.1.2',
+    'version' => '0.2.0',
     'constraints' => [
         'depends' => [
-            'typo3' => '6.2.0-7.99.99',
+            'typo3' => '7.6.0-7.99.99',
             'php' => '5.4.0',
-            'contacts' => '0.1.0',
-            'tcpdf' => '0.2.0',
+            'contacts' => '0.1.6',
+            'tcpdf' => '0.3.2',
         ],
         'conflicts' => [
         ],

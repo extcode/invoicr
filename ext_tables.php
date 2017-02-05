@@ -65,7 +65,7 @@ if (TYPO3_MODE === 'BE') {
         'invoice',
         '',
         [
-            'Invoice' => 'list, show, new, create, edit, update, delete, generateInvoiceDocument',
+            'Invoice' => 'list, show, new, create, edit, update, delete, generateInvoiceDocument, downloadInvoiceDocument',
             'Item' => 'show, edit, update',
 
         ],

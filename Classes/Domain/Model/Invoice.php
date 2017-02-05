@@ -115,11 +115,11 @@ class Invoice extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $wasPaidAt = null;
 
     /**
-     * invoicePdf
+     * invoicePdfs
      *
-     * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
      */
-    protected $invoicePdf = null;
+    protected $invoicePdfs = null;
 
     /**
      * items
@@ -130,25 +130,23 @@ class Invoice extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $items = null;
 
     /**
-     * price
-     *
-     * @var float
+     * __construct
      */
-    protected $price = 0.0;
+    public function __construct()
+    {
+        $this->initStorageObjects();
+    }
 
     /**
-     * tax
+     * Initializes all \TYPO3\CMS\Extbase\Persistence\ObjectStorage properties.
      *
-     * @var float
+     * @return void
      */
-    protected $tax = 0.0;
-
-    /**
-     * totalPrice
-     *
-     * @var float
-     */
-    protected $totalPrice = 0.0;
+    protected function initStorageObjects()
+    {
+        $this->items = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        $this->invoicePdfs = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+    }
 
     /**
      * @return \Extcode\Invoicr\Domain\Model\Customer
@@ -378,28 +376,6 @@ class Invoice extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * __construct
-     */
-    public function __construct()
-    {
-        //Do not remove the next line: It would break the functionality
-        $this->initStorageObjects();
-    }
-
-    /**
-     * Initializes all ObjectStorage properties
-     * Do not modify this method!
-     * It will be rewritten on each save in the extension builder
-     * You may modify the constructor of this class instead
-     *
-     * @return void
-     */
-    protected function initStorageObjects()
-    {
-        $this->items = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-    }
-
-    /**
      * Adds a Item
      *
      * @param \Extcode\Invoicr\Domain\Model\Item $item
@@ -445,22 +421,46 @@ class Invoice extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the invoicePdf
      *
-     * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference $invoicePdf
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
      */
-    public function getInvoicePdf()
+    public function getInvoicePdfs()
     {
-        return $this->invoicePdf;
+        return $this->invoicePdfs;
     }
 
     /**
      * Sets the invoicePdf
      *
-     * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $invoicePdf
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
      * @return void
      */
-    public function setInvoicePdf(\TYPO3\CMS\Extbase\Domain\Model\FileReference $invoicePdf)
+    public function setInvoicePdfs(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $invoicePdfs)
     {
-        $this->invoicePdf = $invoicePdf;
+        $this->invoicePdfs = $invoicePdfs;
+    }
+
+    /**
+     * Adds a Invoice PDF
+     *
+     * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $invoicePdf
+     *
+     * @return void
+     */
+    public function addInvoicePdf(\TYPO3\CMS\Extbase\Domain\Model\FileReference $invoicePdf)
+    {
+        $this->invoicePdfs->attach($invoicePdf);
+    }
+
+    /**
+     * Removes a Invoice PDF
+     *
+     * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $invoicePdfToRemove
+     *
+     * @return void
+     */
+    public function removeInvoicePdf(\TYPO3\CMS\Extbase\Domain\Model\FileReference $invoicePdfToRemove)
+    {
+        $this->invoicePdfs->detach($invoicePdfToRemove);
     }
 
     /**
@@ -468,54 +468,56 @@ class Invoice extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @return float $price
      */
-    public function getPrice()
+    public function getPriceNet()
     {
-        return $this->price;
+        $price = 0.0;
+
+        $items = $this->getItems();
+        if ($items) {
+            foreach ($items as $item) {
+                $price += $item->getTotalPriceNet();
+            }
+        }
+
+        return $price;
     }
 
     /**
-     * Sets the price
+     * Returns the price
      *
-     * @param float $price
-     * @return void
+     * @return float $price
      */
-    public function setPrice($price)
+    public function getPriceGross()
     {
-        $this->price = $price;
+        $price = 0.0;
+
+        $items = $this->getItems();
+        if ($items) {
+            foreach ($items as $item) {
+                $price += $item->getTotalPriceGross();
+            }
+        }
+
+        return $price;
     }
 
     /**
-     * @return float
+     * Return Tax Array
+     *
+     * @return array
      */
-    public function getTax()
+    public function getTaxes()
     {
-        return $this->tax;
-    }
+        $taxes = [];
 
-    /**
-     * @param float $tax
-     * @return void
-     */
-    public function setTax($tax)
-    {
-        $this->tax = $tax;
-    }
+        $items = $this->getItems();
+        if ($items) {
+            foreach ($items as $item) {
+                $taxes[$item->getTax()] += $item->getCalculatedTax();
+            }
+        }
 
-    /**
-     * @return float
-     */
-    public function getTotalPrice()
-    {
-        return $this->totalPrice;
-    }
-
-    /**
-     * @param float $totalPrice
-     * @return void
-     */
-    public function setTotalPrice($totalPrice)
-    {
-        $this->totalPrice = $totalPrice;
+        return $taxes;
     }
 
     /**

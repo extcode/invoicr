@@ -66,13 +66,6 @@ class Item extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $tax = 0.0;
 
     /**
-     * totalPrice
-     *
-     * @var float
-     */
-    protected $totalPrice = 0.0;
-
-    /**
      * invoice
      *
      * @var \Extcode\Invoicr\Domain\Model\Invoice
@@ -221,17 +214,38 @@ class Item extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * @return float
      */
-    public function getTotalPrice()
+    public function getCalculatedTax()
     {
-        return $this->totalPrice;
+        $tax = ($this->getTax() / 100.0);
+
+        $calculatedTax = $this->getPrice() * $this->getQuantity() * $tax;
+
+        return $calculatedTax;
     }
 
     /**
-     * @param float $totalPrice
-     * @return void
+     * Returns Total Net Price
+     *
+     * @return float
      */
-    public function setTotalPrice($totalPrice)
+    public function getTotalPriceNet()
     {
-        $this->totalPrice = $totalPrice;
+        $totalPriceNet = $this->getPrice() * $this->getQuantity();
+
+        return $totalPriceNet;
+    }
+
+    /**
+     * Returns Total Gross Price
+     *
+     * @return float
+     */
+    public function getTotalPriceGross()
+    {
+        $tax = 1 + ($this->getTax() / 100.0);
+
+        $totalPriceGross = $this->getPrice() * $this->getQuantity() * $tax;
+
+        return $totalPriceGross;
     }
 }

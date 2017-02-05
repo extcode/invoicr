@@ -75,7 +75,7 @@ class PdfService
     protected $pdfDemand;
 
     /**
-     * @var \Extcode\Invoicr\Service\InvoicePdf
+     * @var \Extcode\TCPDF\Service\TsTCPDF
      */
     protected $pdf;
 
@@ -184,7 +184,7 @@ class PdfService
                 \Extcode\Invoicr\Domain\Model\FileReference::class
             );
             $newFileReference->setFile($movedNewFile);
-            $invoice->setInvoicePdf($newFileReference);
+            $invoice->addInvoicePdf($newFileReference);
         }
 
         $this->invoiceRepository->update($invoice);
@@ -199,45 +199,97 @@ class PdfService
      */
     protected function renderPdf(\Extcode\Invoicr\Domain\Model\Invoice $invoice)
     {
-        //$this->pdf = new \Extcode\Invoicr\Service\InvoicePdf();
-        $this->pdf = $this->objectManager->get(
-            \Extcode\Invoicr\Service\InvoicePdf::class
+        $pluginSettings = $this->configurationManager->getConfiguration(
+            \TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK,
+            'invoicr'
         );
+        $pdfSettings = $pluginSettings['invoicePdf'];
+
+        $this->pdf = $this->objectManager->get(
+            \Extcode\TCPDF\Service\TsTCPDF::class
+        );
+        $this->pdf->setSettings($pluginSettings);
+        $this->pdf->setCartPdfType('invoicePdf');
+
+        $fontPath = \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName(
+            'EXT:theme_invoicr/Resources/Private/Extensions/invoicr/Fonts/TitilliumMaps26L-500wt.ttf'
+        );
+        $fontName = \TCPDF_FONTS::addTTFfont($fontPath, 'TrueTypeUnicode', '', 32);
+
+        $this->pdf->SetFont($fontName, '', 8, '', false);
+
+        if (!$pdfSettings['header']) {
+            $this->pdf->setPrintHeader(false);
+        } else {
+            $this->pdf->setHeaderFont([$fontName, '', 8]);
+            if ($pdfSettings['header']['margin']) {
+                $this->pdf->setHeaderMargin($pdfSettings['header']['margin']);
+                $this->pdf->SetMargins(PDF_MARGIN_LEFT, $pdfSettings['header']['margin'], PDF_MARGIN_RIGHT);
+            } else {
+                $this->pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+            }
+        }
+        if (!$pdfSettings['footer']) {
+            $this->pdf->setPrintFooter(false);
+        } else {
+            $this->pdf->setFooterFont([$fontName, '', 8]);
+            if ($pdfSettings['footer']['margin']) {
+                $this->pdf->setFooterMargin($pdfSettings['footer']['margin']);
+                $this->pdf->setAutoPageBreak(true, $pdfSettings['footer']['margin']);
+            } else {
+                $this->pdf->setAutoPageBreak(true, PDF_MARGIN_BOTTOM);
+            }
+        }
 
         $this->pdf->AddPage();
 
-        if ($this->pluginSettings['invoicePdf']['font']) {
-            $font = $this->pluginSettings['invoicePdf']['font'] ;
+        if ($pdfSettings['font']) {
+            $font = $pdfSettings['font'] ;
         } else {
             $font = 'Helvetica';
         }
-        if ($this->pluginSettings['invoicePdf']['fontStyle']) {
-            $fontStyle = $this->pluginSettings['invoicePdf']['fontStyle'] ;
+        if ($pdfSettings['fontStyle']) {
+            $fontStyle = $pdfSettings['fontStyle'] ;
         } else {
             $fontStyle = '';
         }
-        if ($this->pluginSettings['invoicePdf']['fontSize']) {
-            $fontSize = $this->pluginSettings['invoicePdf']['fontSize'] ;
+        if ($pdfSettings['fontSize']) {
+            $fontSize = $pdfSettings['fontSize'] ;
         } else {
             $fontSize = 8;
         }
 
+        $this->pdf->SetFont($fontName, $fontStyle, $fontSize, '', false);
 
-        $this->pdf->SetFont($font, $fontStyle, $fontSize);
+        //$this->pdf->SetFont($font, $fontStyle, $fontSize);
 
         $this->renderMarker();
 
-        if ($this->pluginSettings['invoicePdf']['renderParts']) {
-            foreach ($this->pluginSettings['invoicePdf']['renderParts'] as $partName => $partConfig) {
-                $this->renderStandaloneView($invoice, $partName, $partConfig);
+        if ($pdfSettings['letterhead']['html']) {
+            foreach ($pdfSettings['letterhead']['html'] as $partName => $partConfig) {
+                $templatePath = '/Pdf/Letterhead/';
+                $assignToView = ['invoice' => $invoice];
+                $this->pdf->renderStandaloneView($templatePath, $partName, $partConfig, $assignToView);
+            }
+        }
+
+        if ($pdfSettings['body']['before']['html']) {
+            foreach ($pdfSettings['body']['before']['html'] as $partName => $partConfig) {
+                $templatePath = '/Pdf/Body/Before/';
+                $assignToView = ['invoice' => $invoice];
+                $this->pdf->renderStandaloneView($templatePath, $partName, $partConfig, $assignToView);
             }
         }
 
         $this->renderInvoice($invoice);
 
-        $this->pdf->AddPage();
-
-        //$this->renderPaymentOptions();
+        if ($pdfSettings['body']['after']['html']) {
+            foreach ($pdfSettings['body']['after']['html'] as $partName => $partConfig) {
+                $templatePath = '/Pdf/Body/After/';
+                $assignToView = ['invoice' => $invoice];
+                $this->pdf->renderStandaloneView($templatePath, $partName, $partConfig, $assignToView);
+            }
+        }
 
         $pdfFilename = '/tmp/tempfile.pdf';
 
@@ -316,6 +368,10 @@ class PdfService
         }
         $positionX = $config['positionX'];
         $positionY = $config['positionY'];
+        if ($config['spacingY']) {
+            $this->pdf->setY($this->pdf->getY() + $config['spacingY']);
+        }
+
         $align = 'L';
         if ($config['align']) {
             $align = $config['align'];
@@ -349,9 +405,12 @@ class PdfService
      */
     protected function renderInvoice(\Extcode\Invoicr\Domain\Model\Invoice $invoice)
     {
-        $config = $this->pluginSettings['invoicePdf']['renderInvoiceTable'];
+        $config = $this->pluginSettings['invoicePdf']['body']['invoice'];
         $config['height'] = 0;
-        $config['positionY'] = $this->pdf->GetY();
+
+        if (!$config['spacingY'] && !$config['positionY']) {
+            $config['spacingY'] = 5;
+        }
 
         $view = $this->getStandaloneView('/Pdf/Table/', 'Header');
         $view->assign('invoice', $invoice);
@@ -361,7 +420,7 @@ class PdfService
         $view = $this->getStandaloneView('/Pdf/Table/', 'Item');
         $productOut = '';
         foreach ($invoice->getItems() as $item) {
-            $config['$positionY'] = $this->pdf->GetY();
+            //$config['$positionY'] = $this->pdf->GetY();
             $view->assign('item', $item);
             $item = $view->render();
             $productOut .= trim(preg_replace('~[\n]+~', '', $item));

@@ -18,9 +18,8 @@ return [
         'versioningWS' => 2,
         'versioning_followPages' => true,
 
-        'languageField' => 'sys_language_uid',
-        'transOrigPointerField' => 'l10n_parent',
-        'transOrigDiffSourceField' => 'l10n_diffsource',
+        'hideTable' => true,
+
         'delete' => 'deleted',
         'enablecolumns' => [
             'disabled' => 'hidden',
@@ -31,46 +30,15 @@ return [
         'iconfile' => 'EXT:invoicr/Resources/Public/Icons/tx_invoicr_domain_model_item.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, sku, title, description, quantity, price, tax, total_price, invoice',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, sku, title, description, quantity, price, tax, invoice',
     ],
     'types' => [
-        '1' => ['showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, sku, title, description, quantity, price, tax, total_price, invoice, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'],
+        '1' => ['showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, sku, title, description, quantity, price, tax, invoice, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'],
     ],
     'palettes' => [
         '1' => ['showitem' => 'description'],
     ],
     'columns' => [
-        'sys_language_uid' => [
-            'exclude' => 1,
-            'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
-            'config' => [
-                'type' => 'select',
-                'foreign_table' => 'sys_language',
-                'foreign_table_where' => 'ORDER BY sys_language.title',
-                'items' => [
-                    ['LLL:EXT:lang/locallang_general.xlf:LGL.allLanguages', -1],
-                    ['LLL:EXT:lang/locallang_general.xlf:LGL.default_value', 0]
-                ],
-            ],
-        ],
-        'l10n_parent' => [
-            'displayCond' => 'FIELD:sys_language_uid:>:0',
-            'exclude' => 1,
-            'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.l18n_parent',
-            'config' => [
-                'type' => 'select',
-                'items' => [
-                    ['', 0],
-                ],
-                'foreign_table' => 'tx_invoicr_domain_model_item',
-                'foreign_table_where' => 'AND tx_invoicr_domain_model_item.pid=###CURRENT_PID### AND tx_invoicr_domain_model_item.sys_language_uid IN (-1,0)',
-            ],
-        ],
-        'l10n_diffsource' => [
-            'config' => [
-                'type' => 'passthrough',
-            ],
-        ],
         't3ver_label' => [
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.versionLabel',
             'config' => [
@@ -179,15 +147,6 @@ return [
         'tax' => [
             'exclude' => 1,
             'label' => $_LLL . ':tx_invoicr_domain_model_item.tax',
-            'config' => [
-                'type' => 'input',
-                'size' => 30,
-                'eval' => 'double2'
-            ]
-        ],
-        'total_price' => [
-            'exclude' => 1,
-            'label' => $_LLL . ':tx_invoicr_domain_model_item.total_price',
             'config' => [
                 'type' => 'input',
                 'size' => 30,

@@ -1,0 +1,54 @@
+<table>
+    <tr>
+        <td width="60mm"><span style="color: #154251; font-weight: bold;">PROJEKTNAME</span></td>
+        <td>{invoice.title}</td>
+    </tr>
+    <f:if condition="{invoice.description}">
+        <tr>
+            <td><span style="color: #154251; font-weight: bold;">PROJEKTBESCHREIBUNG</span></td>
+            <td>{invoice.description}</td>
+        </tr>
+    </f:if>
+    <f:if condition="{invoice.beginPeriodOfPerformanceDate}">
+        <f:if condition="{invoice.beginPeriodOfPerformanceDate} == {invoice.endPeriodOfPerformanceDate}">
+            <f:then>
+                <tr>
+                    <td><span style="color: #154251; font-weight: bold;">LEISTUNGSDATUM</span></td>
+                    <td><f:format.date format="d.m.Y">{invoice.beginPeriodOfPerformanceDate}</f:format.date></td>
+                </tr>
+            </f:then>
+            <f:else>
+                <tr>
+                    <td><span style="color: #154251; font-weight: bold;">LEISTUNGSZEITRAUM</span></td>
+                    <td><f:format.date format="d.m.Y">{invoice.beginPeriodOfPerformanceDate}</f:format.date> - <f:format.date format="d.m.Y">{invoice.endPeriodOfPerformanceDate}</f:format.date></td>
+                </tr>
+            </f:else>
+        </f:if>
+    </f:if>
+    <f:if condition="{invoice.orderNumber}">
+        <tr>
+            <td><span style="color: #154251; font-weight: bold;">ANGEBOTSNUMMER</span></td>
+            <td>{invoice.orderNumber}</td>
+        </tr>
+    </f:if>
+    <tr>
+        <td><span style="color: #154251; font-weight: bold;">RECHNUNGSNUMMER</span></td>
+        <td>{invoice.invoiceNumber}</td>
+    </tr>
+    <f:if condition="{0:invoice.typeOfPayment} == {0:'transfer'}">
+        <tr>
+            <td><span style="color: #154251; font-weight: bold;">ZAHLUNGSMETHODE</span></td>
+            <td>Überweisung</td>
+        </tr>
+        <tr>
+            <td><span style="color: #154251; font-weight: bold;">ZAHLUNGSZIEL</span></td>
+            <td>{invoice.termsOfPayment}</td>
+        </tr>
+    </f:if>
+    <f:if condition="{0:invoice.typeOfPayment} == {0:'direct_debit'}">
+        <tr>
+            <td><span style="color: #154251; font-weight: bold;">ZAHLUNGSMETHODE</span></td>
+            <td>Lastschrift</td>
+        </tr>
+    </f:if>
+</table>

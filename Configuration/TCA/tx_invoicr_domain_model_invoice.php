@@ -7,7 +7,9 @@ $_LLL = 'LLL:EXT:invoicr/Resources/Private/Language/locallang_db.xlf';
 return [
     'ctrl' => [
         'title' => 'LLL:EXT:invoicr/Resources/Private/Language/locallang_db.xlf:tx_invoicr_domain_model_invoice',
-        'label' => 'title',
+        'label' => 'invoice_number',
+        'label_alt' => 'title',
+        'label_alt_force' => 1,
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
@@ -16,9 +18,6 @@ return [
         'versioningWS' => 2,
         'versioning_followPages' => true,
 
-        'languageField' => 'sys_language_uid',
-        'transOrigPointerField' => 'l10n_parent',
-        'transOrigDiffSourceField' => 'l10n_diffsource',
         'delete' => 'deleted',
         'enablecolumns' => [
             'disabled' => 'hidden',
@@ -30,7 +29,7 @@ return [
         'iconfile' => 'EXT:invoicr/Resources/Public/Icons/tx_invoicr_domain_model_invoice.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, customer, invoice_number, title, description, content_above, content_below, begin_period_of_performance_date, end_period_of_performance_date, invoice_date, type_of_payment, terms_of_payment, was_sent_at, was_paid_at, invoice_pdf, items, price, tax, total_price',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, customer, invoice_number, title, description, content_above, content_below, begin_period_of_performance_date, end_period_of_performance_date, invoice_date, type_of_payment, terms_of_payment, was_sent_at, was_paid_at, invoice_pdfs, items',
     ],
     'types' => [
         '1' => [
@@ -40,8 +39,8 @@ return [
                 --palette--;LLL:EXT:invoicr/Resources/Private/Language/locallang_db.xlf:tx_invoicr_domain_model_invoice.palette.invoice_data;invoice_data,
                 title, description, content_above, content_below,
                 --palette--;LLL:EXT:invoicr/Resources/Private/Language/locallang_db.xlf:tx_invoicr_domain_model_invoice.palette.period_of_performance;period_of_performance,
-                type_of_payment, terms_of_payment, was_sent_at, was_paid_at, items, invoice_pdf,
-                price, tax, total_price'
+                type_of_payment, terms_of_payment, was_sent_at, was_paid_at, items, invoice_pdfs,
+            '
         ],
     ],
     'palettes' => [
@@ -54,39 +53,6 @@ return [
         ],
     ],
     'columns' => [
-
-        'sys_language_uid' => [
-            'exclude' => 1,
-            'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
-            'config' => [
-                'type' => 'select',
-                'foreign_table' => 'sys_language',
-                'foreign_table_where' => 'ORDER BY sys_language.title',
-                'items' => [
-                    ['LLL:EXT:lang/locallang_general.xlf:LGL.allLanguages', -1],
-                    ['LLL:EXT:lang/locallang_general.xlf:LGL.default_value', 0]
-                ],
-            ],
-        ],
-        'l10n_parent' => [
-            'displayCond' => 'FIELD:sys_language_uid:>:0',
-            'exclude' => 1,
-            'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.l18n_parent',
-            'config' => [
-                'type' => 'select',
-                'items' => [
-                    ['', 0],
-                ],
-                'foreign_table' => 'tx_invoicr_domain_model_invoice',
-                'foreign_table_where' => 'AND tx_invoicr_domain_model_invoice.pid=###CURRENT_PID### AND tx_invoicr_domain_model_invoice.sys_language_uid IN (-1,0)',
-            ],
-        ],
-        'l10n_diffsource' => [
-            'config' => [
-                'type' => 'passthrough',
-            ],
-        ],
-
         't3ver_label' => [
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.versionLabel',
             'config' => [
@@ -302,7 +268,7 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'trim'
+                'eval' => 'required,trim'
             ],
         ],
         'was_sent_at' => [
@@ -329,13 +295,31 @@ return [
                 'default' => '0000-00-00'
             ],
         ],
-        'invoice_pdf' => [
+        'invoice_pdfs' => [
             'exclude' => 1,
             'label' => $_LLL . ':tx_invoicr_domain_model_invoice.invoice_pdf',
             'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
-                'invoicePdf',
-                ['maxitems' => 1],
-                '*'
+                'file',
+                [
+                    'appearance' => [
+                        'enabledControls' => [
+                            'info' => true,
+                            'new' => false,
+                            'dragdrop' => false,
+                            'sort' => false,
+                            'hide' => false,
+                            'delete' => true,
+                            'localize' => false,
+                        ],
+                    ],
+                    'foreign_match_fields' => [
+                        'fieldname' => 'invoice_pdf',
+                        'tablenames' => 'tx_invoicr_domain_model_invoice',
+                        'table_local' => 'sys_file',
+                    ],
+                    'maxitems' => 99,
+                ],
+                'pdf'
             ),
         ],
         'items' => [
@@ -345,6 +329,7 @@ return [
                 'type' => 'inline',
                 'foreign_table' => 'tx_invoicr_domain_model_item',
                 'foreign_field' => 'invoice',
+                'minitems' => 1,
                 'maxitems' => 9999,
                 'foreign_sortby' => 'sorting',
                 'appearance' => [
@@ -358,33 +343,6 @@ return [
                     'newRecordLinkPosition' => 'bottom',
                 ],
             ],
-        ],
-        'price' => [
-            'exclude' => 1,
-            'label' => $_LLL . ':tx_invoicr_domain_model_invoice.price',
-            'config' => [
-                'type' => 'input',
-                'size' => 30,
-                'eval' => 'double2'
-            ]
-        ],
-        'tax' => [
-            'exclude' => 1,
-            'label' => $_LLL . ':tx_invoicr_domain_model_invoice.tax',
-            'config' => [
-                'type' => 'input',
-                'size' => 30,
-                'eval' => 'double2'
-            ]
-        ],
-        'total_price' => [
-            'exclude' => 1,
-            'label' => $_LLL . ':tx_invoicr_domain_model_invoice.total_price',
-            'config' => [
-                'type' => 'input',
-                'size' => 30,
-                'eval' => 'double2'
-            ]
         ],
         'customer' => [
             'exclude' => 1,

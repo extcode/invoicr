@@ -5,13 +5,13 @@
     <td width="70mm" style="border: 1px solid #ededed;">
         {item.title}
     </td>
-    <td width="26mm" style="border: 1px solid #ededed; text-align: right;">
-        <f:format.currency>{item.price} €</f:format.currency>
-    </td>
     <td width="13mm" style="border: 1px solid #ededed; text-align: right;">
         {item.quantity}
     </td>
     <td width="26mm" style="border: 1px solid #ededed; text-align: right;">
-        <f:format.currency>{item.totalPrice} €</f:format.currency>
+        <f:format.currency currencySign="€">{item.totalPriceNet}</f:format.currency>
+    </td>
+    <td width="26mm" style="border: 1px solid #ededed; text-align: right;">
+        <f:format.currency currencySign="€">{item.totalPriceGross}</f:format.currency>
     </td>
 </tr>
