@@ -180,44 +180,22 @@ return [
             'label' => $_LLL . ':tx_invoicr_domain_model_invoice.content_above',
             'config' => [
                 'type' => 'text',
-                'cols' => 80,
-                'rows' => 5,
-                'eval' => 'trim',
-                'wizards' => [
-                    'RTE' => [
-                        'icon' => 'wizard_rte2.gif',
-                        'notNewRecords' => 1,
-                        'RTEonly' => 1,
-                        'title' => 'LLL:EXT:cms/locallang_ttc.xlf:bodytext.W.RTE',
-                        'type' => 'script',
-                        'module' => array(
-                            'name' => 'wizard_rte',
-                        ),
-                    ]
-                ]
+                'cols' => 40,
+                'rows' => 15,
+                'eval' => 'trim'
             ],
+            'defaultExtras' => 'richtext[]'
         ],
         'content_below' => [
             'exclude' => 1,
             'label' => $_LLL . ':tx_invoicr_domain_model_invoice.content_below',
             'config' => [
                 'type' => 'text',
-                'cols' => 80,
-                'rows' => 5,
-                'eval' => 'trim',
-                'wizards' => [
-                    'RTE' => [
-                        'icon' => 'wizard_rte2.gif',
-                        'notNewRecords' => 1,
-                        'RTEonly' => 1,
-                        'title' => 'LLL:EXT:cms/locallang_ttc.xlf:bodytext.W.RTE',
-                        'type' => 'script',
-                        'module' => array(
-                            'name' => 'wizard_rte',
-                        ),
-                    ]
-                ]
+                'cols' => 40,
+                'rows' => 15,
+                'eval' => 'trim'
             ],
+            'defaultExtras' => 'richtext[]'
         ],
         'begin_period_of_performance_date' => [
             'exclude' => 1,

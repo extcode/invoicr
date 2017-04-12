@@ -136,6 +136,12 @@ module.tx_invoicr {
                         positionY = 100
                         fontSize = 12
                     }
+
+                    contentAbove {
+                        width = 170
+                        positionX = 20
+                        spacingY = 20
+                    }
                 }
             }
 
@@ -148,6 +154,12 @@ module.tx_invoicr {
 
             after {
                 html {
+                    contentBelow {
+                        width = 170
+                        positionX = 20
+                        spacingY = 20
+                    }
+
                     greetings {
                         width = 170
                         height = 20
