@@ -1,33 +1,36 @@
-<div class="invoice_module_search">
-    <div class="invoice_module_search_inner">
+<div class="panel panel-default">
+    <div class="panel-body">
 
         <f:form action="{action}" name="filter" id="invoice_module_search">
-
-            <div>
+            <div class="form-group">
                 <label for="customer">
                     <f:translate key="tx_invoicr_domain_model_invoice.customer"/>
                 </label>
-                <f:form.textfield property="title" id="customer" class="" value="{piVars.filter.customer}"/>
+                <f:form.textfield property="title"
+                                  id="customer"
+                                  class="form-control"
+                                  value="{piVars.filter.customer}"/>
             </div>
-            <div>
+            <div class="form-group">
                 <label for="invoiceNumber">
                     <f:translate key="tx_invoicr_domain_model_invoice.invoice_number"/>
                 </label>
-                <f:form.textfield property="invoiceNumber" id="invoiceNumber" class=""
+                <f:form.textfield property="invoiceNumber"
+                                  id="invoiceNumber"
+                                  class="form-control"
                                   value="{piVars.filter.invoiceNumber}"/>
             </div>
-            <div>
+            <div class="form-group">
                 <label for="title">
                     <f:translate key="tx_invoicr_domain_model_invoice.title"/>
                 </label>
-                <f:form.textfield property="title" id="title" class="" value="{piVars.filter.title}"/>
+                <f:form.textfield property="title"
+                                  id="title"
+                                  class="form-control"
+                                  value="{piVars.filter.title}"/>
             </div>
 
-            <div class="col-25" style="float:right;">
-                <f:form.submit value="{f:translate(key: 'tx_invoicr.controller.invoice.action.filterInvoices')}" class="searchall_submit"/>
-            </div>
-
-            <div class="clear">&nbsp;</div>
+            <button class="btn btn-default btn-save" type="submit">{f:translate(key: 'tx_invoicr.controller.invoice.action.filterInvoices')}</button>
 
         </f:form>
 

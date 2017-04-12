@@ -1,8 +1,17 @@
-<table class="tx-invoicr typo3-dblist">
+<table class="table">
+    <tr>
+        <th>
+            <f:translate key="tx_invoicr_domain_model_invoice.customer"/>
+        </th>
+        <td>
+            <f:if condition="{invoice.customer}">
+                {invoice.customer.number}
+            </f:if>
+        </td>
+    </tr>
     <tr>
         <th>
             <f:translate key="tx_invoicr_domain_model_invoice.title"/>
-            :
         </th>
         <td>
             {invoice.title}
@@ -11,7 +20,6 @@
     <tr>
         <th>
             <f:translate key="tx_invoicr_domain_model_invoice.invoice_number"/>
-            :
         </th>
         <td>
             {invoice.invoiceNumber}
@@ -21,7 +29,6 @@
         <tr>
             <td>
                 <f:translate key="tx_invoicr_domain_model_invoice.description"/>
-                :
             </td>
             <td>
                 {invoice.description}
@@ -33,11 +40,8 @@
             <f:translate key="tx_invoicr_domain_model_invoice.period_of_performance"/>
         </th>
         <td>
-            <f:format.date date="{invoice.beginPeriodOfPerformanceDate}"
-                           format="{f:translate(key: 'tx_invoicr_domain_model_invoice.dateFormat' )}"/>
-            -
-            <f:format.date date="{invoice.endPeriodOfPerformanceDate}"
-                           format="{f:translate(key: 'tx_invoicr_domain_model_invoice.dateFormat' )}"/>
+            {invoice.beginPeriodOfPerformanceDate -> f:format.date(format:"{f:translate(key: 'tx_invoicr_domain_model_invoice.dateFormat' )}")} -
+            {invoice.endPeriodOfPerformanceDate -> f:format.date(format:"{f:translate(key: 'tx_invoicr_domain_model_invoice.dateFormat' )}")}
         </td>
     </tr>
     <tr>
@@ -45,7 +49,7 @@
             <f:translate key="tx_invoicr_domain_model_invoice.invoice_date"/>
         </th>
         <td>
-            {invoice.invoiceDate -> f:format.date()}
+            {invoice.invoiceDate -> f:format.date(format:"{f:translate(key: 'tx_invoicr_domain_model_invoice.dateFormat' )}")}
         </td>
     </tr>
     <tr>
@@ -61,7 +65,7 @@
             <f:translate key="tx_invoicr_domain_model_invoice.was_sent_at"/>
         </th>
         <td>
-            {invoice.wasSentAt -> f:format.date()}
+            {invoice.wasSentAt -> f:format.date(format:"{f:translate(key: 'tx_invoicr_domain_model_invoice.dateFormat' )}")}
         </td>
     </tr>
     <tr>
@@ -69,7 +73,7 @@
             <f:translate key="tx_invoicr_domain_model_invoice.was_paid_at"/>
         </th>
         <td>
-            {invoice.wasPaidAt -> f:format.date()}
+            {invoice.wasPaidAt -> f:format.date(format:"{f:translate(key: 'tx_invoicr_domain_model_invoice.dateFormat' )}")}
         </td>
     </tr>
 </table>

@@ -270,26 +270,30 @@ class InvoiceTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
     /**
      * @test
      */
-    public function getInvoicePdfReturnsInitialValueForFileReference()
+    public function getInvoicePdfsInitiallyReturnsEmptyObjectStorage()
     {
+        $newObjectStorage = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+
         $this->assertEquals(
-            null,
-            $this->subject->getInvoicePdf()
+            $newObjectStorage,
+            $this->subject->getInvoicePdfs()
         );
     }
 
     /**
      * @test
      */
-    public function setInvoicePdfForFileReferenceSetsInvoicePdf()
+    public function setInvoicePdfsForFileReferenceSetsInvoicePdfs()
     {
-        $fileReferenceFixture = new \TYPO3\CMS\Extbase\Domain\Model\FileReference();
-        $this->subject->setInvoicePdf($fileReferenceFixture);
+        $fileReference = new \TYPO3\CMS\Extbase\Domain\Model\FileReference();
+        $objectStorageHoldingExactlyOneFileReference = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        $objectStorageHoldingExactlyOneFileReference->attach($fileReference);
 
-        $this->assertAttributeEquals(
-            $fileReferenceFixture,
-            'invoicePdf',
-            $this->subject
+        $this->subject->setInvoicePdfs($objectStorageHoldingExactlyOneFileReference);
+
+        $this->assertSame(
+            $objectStorageHoldingExactlyOneFileReference,
+            $this->subject->getInvoicePdfs()
         );
     }
 

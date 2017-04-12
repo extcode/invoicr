@@ -1,15 +1,14 @@
 <f:layout name="Default"/>
 
 <f:section name="actions">
-    <span class="btn btn-default btn-sm">
-        <f:be.buttons.icon
-                uri="{f:uri.action(action:'list')}"
-                icon="actions-close"/>
-    </span>
+    <a class="btn btn-default btn-sm"
+       href="{f:uri.action(action:'list')}">
+        <core:icon identifier="actions-close" />
+    </a>
 </f:section>
 
 <f:section name="content">
-    <f:flashMessages renderMode="div"/>
+    <f:flashMessages />
 
     <f:render partial="FormErrors" arguments="{object:Invoice}"/>
 

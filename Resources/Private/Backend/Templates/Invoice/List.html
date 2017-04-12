@@ -1,15 +1,16 @@
 <f:layout name="Default"/>
 
 <f:section name="actions">
-    <span class="btn btn-default btn-sm">
-        <f:be.buttons.icon
-                uri="{f:uri.action(action:'new', arguments:{filter: arguments.filter})}"
-                icon="actions-document-new"/>
+    <span>
+        <a class="btn btn-default btn-sm"
+           href="{f:uri.action(action:'new', arguments:{filter: arguments.filter})}">
+            <core:icon identifier="actions-document-new" />
+        </a>
     </span>
 </f:section>
 
 <f:section name="content">
-    <f:flashMessages renderMode="div"/>
+    <f:flashMessages />
 
     <f:render partial="Invoice/Filter/List" arguments="{piVars: piVars, action: 'list'}"/>
 
@@ -17,19 +18,19 @@
         <thead>
         <tr class="t3-row-header">
             <th>
-                <f:translate key="tx_invoicr_domain_model_invoice.customer"/>
-            </th>
-            <th>
                 <f:translate key="tx_invoicr_domain_model_invoice.invoice_number"/>
             </th>
             <th>
                 <f:translate key="tx_invoicr_domain_model_invoice.invoice_date"/>
             </th>
             <th>
+                <f:translate key="tx_invoicr_domain_model_invoice.customer"/>
+            </th>
+            <th>
                 <f:translate key="tx_invoicr_domain_model_invoice.title"/>
             </th>
-            <th>s</th>
-            <th>p</th>
+            <th><f:translate key="tx_invoicr_domain_model_invoice.was_sent_at"/></th>
+            <th><f:translate key="tx_invoicr_domain_model_invoice.was_paid_at"/></th>
             <th></th>
         </tr>
         </thead>
@@ -37,31 +38,30 @@
         <f:for each="{invoices}" as="invoice">
             <tr>
                 <td>
+                    {invoice.invoiceNumber}
+                </td>
+                <td>
+                    {invoice.invoiceDate -> f:format.date(format:"{f:translate(key: 'tx_invoicr_domain_model_invoice.dateFormat' )}")}
+                </td>
+                <td>
                     <f:if condition="{invoice.customer}">
                         {invoice.customer.number}
                     </f:if>
                 </td>
                 <td>
-                    {invoice.invoiceNumber}
-                </td>
-                <td>
-                    {invoice.invoiceDate -> f:format.date()}
-                </td>
-                <td>
                     {invoice.title}
                 </td>
                 <td>
-                    {invoice.wasSentAt -> f:format.date()}
+                    {invoice.wasSentAt -> f:format.date(format:"{f:translate(key: 'tx_invoicr_domain_model_invoice.dateFormat' )}")}
                 </td>
                 <td>
-                    {invoice.wasPaidAt -> f:format.date()}
+                    {invoice.wasPaidAt -> f:format.date(format:"{f:translate(key: 'tx_invoicr_domain_model_invoice.dateFormat' )}")}
                 </td>
                 <td>
-                    <span class="btn btn-default btn-sm">
-                        <f:be.buttons.icon
-                                uri="{f:uri.action(action:'show', arguments:{invoice : invoice})}"
-                                icon="actions-view"/>
-                    </span>
+                    <a class="btn btn-default btn-sm"
+                       href="{f:uri.action(action:'show', arguments:{invoice : invoice})}">
+                        <core:icon identifier="actions-view" />
+                    </a>
                 </td>
             </tr>
         </f:for>

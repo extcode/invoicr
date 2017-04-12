@@ -6,7 +6,7 @@
     <f:link.action controller="Invoice" action="show" arguments="{invoice : item.invoice}">Invoice Show</f:link.action>
     <f:link.action controller="Item" action="show" arguments="{item : item}">Item Show</f:link.action>
 
-    <f:flashMessages renderMode="div"/>
+    <f:flashMessages />
 
     <f:render partial="FormErrors" arguments="{object:Item}"/>
 
