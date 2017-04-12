@@ -2,7 +2,7 @@
     2017-04-12
     Daniel Lorenz <daniel.lorenz@extco.de>
 
-    * TASK #1218:
+    * TASK #1: make extension compatible to TYPO3 v8.7 and remove compatibility to TYPO3 v6.2
 
 0.1.2
     2016-08-16
