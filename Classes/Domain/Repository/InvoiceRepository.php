@@ -23,5 +23,7 @@ namespace Extcode\Invoicr\Domain\Repository;
  */
 class InvoiceRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
-
+    protected $defaultOrderings = array(
+        'invoice_number' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_DESCENDING
+    );
 }

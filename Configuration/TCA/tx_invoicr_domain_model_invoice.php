@@ -18,6 +18,8 @@ return [
         'versioningWS' => 2,
         'versioning_followPages' => true,
 
+        'default_sortby' => 'ORDER BY crdate DESC',
+
         'delete' => 'deleted',
         'enablecolumns' => [
             'disabled' => 'hidden',
