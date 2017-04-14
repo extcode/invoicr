@@ -18,7 +18,6 @@ namespace Extcode\Invoicr\Controller;
 /**
  * Invoice Controller
  *
- * @package invoicr
  * @author Daniel Lorenz <ext.invoicr@extco.de>
  */
 class InvoiceController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
@@ -41,8 +40,6 @@ class InvoiceController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 
     /**
      * Initialize Action
-     *
-     * @return void
      */
     protected function initializeAction()
     {
@@ -85,7 +82,6 @@ class InvoiceController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      */
     public function initializeUpdateAction()
     {
-
         if (isset($this->arguments['invoice'])) {
             $this->arguments['invoice']
                 ->getPropertyMappingConfiguration()
@@ -127,13 +123,10 @@ class InvoiceController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
                         'invoicr')
                 );
         }
-
     }
 
     /**
      * action list
-     *
-     * @return void
      */
     public function listAction()
     {
@@ -145,7 +138,6 @@ class InvoiceController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      * action show
      *
      * @param \Extcode\Invoicr\Domain\Model\Invoice $invoice
-     * @return void
      */
     public function showAction(\Extcode\Invoicr\Domain\Model\Invoice $invoice)
     {
@@ -157,7 +149,6 @@ class InvoiceController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      *
      * @param \Extcode\Invoicr\Domain\Model\Invoice $newInvoice
      * @ignorevalidation $newInvoice
-     * @return void
      */
     public function newAction(\Extcode\Invoicr\Domain\Model\Invoice $newInvoice = null)
     {
@@ -172,7 +163,6 @@ class InvoiceController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      * action create
      *
      * @param \Extcode\Invoicr\Domain\Model\Invoice $newInvoice
-     * @return void
      */
     public function createAction(\Extcode\Invoicr\Domain\Model\Invoice $newInvoice)
     {
@@ -188,7 +178,6 @@ class InvoiceController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      *
      * @param \Extcode\Invoicr\Domain\Model\Invoice $invoice
      * @ignorevalidation $invoice
-     * @return void
      */
     public function editAction(\Extcode\Invoicr\Domain\Model\Invoice $invoice)
     {
@@ -203,7 +192,6 @@ class InvoiceController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      * action update
      *
      * @param \Extcode\Invoicr\Domain\Model\Invoice $invoice
-     * @return void
      */
     public function updateAction(\Extcode\Invoicr\Domain\Model\Invoice $invoice)
     {
@@ -219,7 +207,6 @@ class InvoiceController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      * action delete
      *
      * @param \Extcode\Invoicr\Domain\Model\Invoice $invoice
-     * @return void
      */
     public function deleteAction(\Extcode\Invoicr\Domain\Model\Invoice $invoice)
     {
@@ -234,7 +221,6 @@ class InvoiceController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      * Generate InvoiceDocument Action
      *
      * @param \Extcode\Invoicr\Domain\Model\Invoice $invoice
-     * @return void
      */
     public function generateInvoiceDocumentAction(\Extcode\Invoicr\Domain\Model\Invoice $invoice)
     {
@@ -255,8 +241,6 @@ class InvoiceController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      * Downlaod InvoiceDocument Action
      *
      * @param \Extcode\Invoicr\Domain\Model\Invoice $invoice
-     *
-     * @return void
      */
     public function downloadInvoiceDocumentAction(\Extcode\Invoicr\Domain\Model\Invoice $invoice)
     {

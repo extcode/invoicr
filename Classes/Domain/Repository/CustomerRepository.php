@@ -18,10 +18,8 @@ namespace Extcode\Invoicr\Domain\Repository;
 /**
  * Customer Repository
  *
- * @package invoicr
  * @author Daniel Lorenz <ext.invoicr@extco.de>
  */
 class CustomerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
-
 }

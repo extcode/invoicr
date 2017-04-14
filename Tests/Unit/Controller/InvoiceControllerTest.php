@@ -18,7 +18,6 @@ namespace Extcode\Invoicr\Tests\Unit\Controller;
 /**
  * Invoice Controller Test
  *
- * @package invoicr
  * @author Daniel Lorenz <ext.invoicr@extco.de>
  */
 class InvoiceControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
@@ -32,7 +31,7 @@ class InvoiceControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
     protected function setUp()
     {
         $this->subject = $this->getMock('Extcode\\Invoicr\\Controller\\InvoiceController',
-            array('redirect', 'forward', 'addFlashMessage'), array(), '', false);
+            ['redirect', 'forward', 'addFlashMessage'], [], '', false);
     }
 
     protected function tearDown()
@@ -45,11 +44,10 @@ class InvoiceControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
      */
     public function listActionFetchesAllInvoicesFromRepositoryAndAssignsThemToView()
     {
+        $allInvoices = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage', [], [], '', false);
 
-        $allInvoices = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage', array(), array(), '', false);
-
-        $invoiceRepository = $this->getMock('Extcode\\Invoicr\\Domain\\Repository\\InvoiceRepository', array('findAll'),
-            array(), '', false);
+        $invoiceRepository = $this->getMock('Extcode\\Invoicr\\Domain\\Repository\\InvoiceRepository', ['findAll'],
+            [], '', false);
         $invoiceRepository->expects($this->once())->method('findAll')->will($this->returnValue($allInvoices));
         $this->inject($this->subject, 'invoiceRepository', $invoiceRepository);
 
@@ -95,8 +93,8 @@ class InvoiceControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
     {
         $invoice = new \Extcode\Invoicr\Domain\Model\Invoice();
 
-        $invoiceRepository = $this->getMock('Extcode\\Invoicr\\Domain\\Repository\\InvoiceRepository', array('add'),
-            array(), '', false);
+        $invoiceRepository = $this->getMock('Extcode\\Invoicr\\Domain\\Repository\\InvoiceRepository', ['add'],
+            [], '', false);
         $invoiceRepository->expects($this->once())->method('add')->with($invoice);
         $this->inject($this->subject, 'invoiceRepository', $invoiceRepository);
 
@@ -124,8 +122,8 @@ class InvoiceControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
     {
         $invoice = new \Extcode\Invoicr\Domain\Model\Invoice();
 
-        $invoiceRepository = $this->getMock('Extcode\\Invoicr\\Domain\\Repository\\InvoiceRepository', array('update'),
-            array(), '', false);
+        $invoiceRepository = $this->getMock('Extcode\\Invoicr\\Domain\\Repository\\InvoiceRepository', ['update'],
+            [], '', false);
         $invoiceRepository->expects($this->once())->method('update')->with($invoice);
         $this->inject($this->subject, 'invoiceRepository', $invoiceRepository);
 
@@ -139,8 +137,8 @@ class InvoiceControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
     {
         $invoice = new \Extcode\Invoicr\Domain\Model\Invoice();
 
-        $invoiceRepository = $this->getMock('Extcode\\Invoicr\\Domain\\Repository\\InvoiceRepository', array('remove'),
-            array(), '', false);
+        $invoiceRepository = $this->getMock('Extcode\\Invoicr\\Domain\\Repository\\InvoiceRepository', ['remove'],
+            [], '', false);
         $invoiceRepository->expects($this->once())->method('remove')->with($invoice);
         $this->inject($this->subject, 'invoiceRepository', $invoiceRepository);
 

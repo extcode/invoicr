@@ -30,26 +30,25 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * ViewHelper to include a css/js file
- *
- * @package cart
  */
-class IncludeFileViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
+class IncludeFileViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper
+{
 
     /**
      * Include a CSS/JS file
      *
      * @param string $path Path to the CSS/JS file which should be included
-     * @param boolean $compress Define if file should be compressed
-     * @return void
+     * @param bool $compress Define if file should be compressed
      */
-    public function render($path, $compress = FALSE) {
+    public function render($path, $compress = false)
+    {
         $pageRenderer = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Page\\PageRenderer');
         if (TYPO3_MODE === 'FE') {
             $path = $GLOBALS['TSFE']->tmpl->getFileName($path);
         }
 
         if (strtolower(substr($path, -3)) === '.js') {
-            $pageRenderer->addJsFile($path, NULL, $compress);
+            $pageRenderer->addJsFile($path, null, $compress);
         } elseif (strtolower(substr($path, -4)) === '.css') {
             $pageRenderer->addCssFile($path, 'stylesheet', 'all', '', $compress);
         }

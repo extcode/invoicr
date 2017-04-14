@@ -18,7 +18,6 @@ namespace Extcode\Invoicr\Domain\Model;
 /**
  * Mandate
  *
- * @package invoicr
  * @author Daniel Lorenz <ext.invoicr@extco.de>
  */
 class Mandate extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
@@ -68,7 +67,6 @@ class Mandate extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     /**
      * @param string $reference
-     * @return void
      */
     public function setReference($reference)
     {
@@ -85,7 +83,6 @@ class Mandate extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     /**
      * @param \DateTime $referenceDate
-     * @return void
      */
     public function setReferenceDate($referenceDate)
     {
@@ -102,7 +99,6 @@ class Mandate extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     /**
      * @param string $accountHolder
-     * @return void
      */
     public function setAccountHolder($accountHolder)
     {
@@ -119,7 +115,6 @@ class Mandate extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     /**
      * @param string $bic
-     * @return void
      */
     public function setBic($bic)
     {
@@ -136,7 +131,6 @@ class Mandate extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     /**
      * @param string $iban
-     * @return void
      */
     public function setIban($iban)
     {

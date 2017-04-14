@@ -18,12 +18,11 @@ namespace Extcode\Invoicr\Domain\Repository;
 /**
  * Invoice Repository
  *
- * @package invoicr
  * @author Daniel Lorenz <ext.invoicr@extco.de>
  */
 class InvoiceRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
-    protected $defaultOrderings = array(
+    protected $defaultOrderings = [
         'invoice_number' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_DESCENDING
-    );
+    ];
 }

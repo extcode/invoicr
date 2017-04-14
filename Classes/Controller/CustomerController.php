@@ -18,7 +18,6 @@ namespace Extcode\Invoicr\Controller;
 /**
  * Customer Controller
  *
- * @package invoicr
  * @author Daniel Lorenz <ext.invoicr@extco.de>
  */
 class CustomerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
@@ -33,8 +32,6 @@ class CustomerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 
     /**
      * action list
-     *
-     * @return void
      */
     public function listAction()
     {

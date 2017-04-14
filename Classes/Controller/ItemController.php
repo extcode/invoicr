@@ -18,7 +18,6 @@ namespace Extcode\Invoicr\Controller;
 /**
  * Item Controller
  *
- * @package invoicr
  * @author Daniel Lorenz <ext.invoicr@extco.de>
  */
 class ItemController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
@@ -35,7 +34,6 @@ class ItemController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      * action show
      *
      * @param \Extcode\Invoicr\Domain\Model\Item $item
-     * @return void
      */
     public function showAction(\Extcode\Invoicr\Domain\Model\Item $item)
     {
@@ -46,7 +44,6 @@ class ItemController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      * action edit
      *
      * @param \Extcode\Invoicr\Domain\Model\Item $item
-     * @return void
      */
     public function editAction(\Extcode\Invoicr\Domain\Model\Item $item)
     {
@@ -61,13 +58,12 @@ class ItemController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      * action update
      *
      * @param \Extcode\Invoicr\Domain\Model\Item $item
-     * @return void
      */
     public function updateAction(\Extcode\Invoicr\Domain\Model\Item $item)
     {
         if (TYPO3_MODE === 'BE') {
             $this->itemRepository->update($item);
-            $this->redirect('show', 'Invoice', null, array('invoice' => $item->getInvoice()));
+            $this->redirect('show', 'Invoice', null, ['invoice' => $item->getInvoice()]);
         }
 
         $this->redirect('list', 'Invoice');

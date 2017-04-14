@@ -15,12 +15,9 @@ namespace Extcode\Invoicr\Service;
  * The TYPO3 project - inspiring people to share!
  */
 
-use TYPO3\CMS\Core\SingletonInterface;
-
 /**
  * Pdf Service
  *
- * @package invoicr
  * @author Daniel Lorenz <ext.invoicr@extco.de>
  */
 class PdfService
@@ -104,8 +101,6 @@ class PdfService
      * Injects the Object Manager
      *
      * @param \TYPO3\CMS\Extbase\Object\ObjectManagerInterface $objectManager
-     *
-     * @return void
      */
     public function injectObjectManager(
         \TYPO3\CMS\Extbase\Object\ObjectManagerInterface $objectManager
@@ -117,8 +112,6 @@ class PdfService
      * Injects the Configuration Manager
      *
      * @param \TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface $configurationManager
-     *
-     * @return void
      */
     public function injectConfigurationManager(
         \TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface $configurationManager
@@ -139,8 +132,6 @@ class PdfService
      * Inject the Log Manager
      *
      * @param \TYPO3\CMS\Core\Log\LogManagerInterface $logḾanager
-     *
-     * @return void
      */
     public function injectLog(
         \TYPO3\CMS\Core\Log\LogManagerInterface $logḾanager
@@ -194,8 +185,6 @@ class PdfService
 
     /**
      * @param \Extcode\Invoicr\Domain\Model\Invoice $invoice
-     *
-     * @return void
      */
     protected function renderPdf(\Extcode\Invoicr\Domain\Model\Invoice $invoice)
     {
@@ -244,17 +233,17 @@ class PdfService
         $this->pdf->AddPage();
 
         if ($pdfSettings['font']) {
-            $font = $pdfSettings['font'] ;
+            $font = $pdfSettings['font'];
         } else {
             $font = 'Helvetica';
         }
         if ($pdfSettings['fontStyle']) {
-            $fontStyle = $pdfSettings['fontStyle'] ;
+            $fontStyle = $pdfSettings['fontStyle'];
         } else {
             $fontStyle = '';
         }
         if ($pdfSettings['fontSize']) {
-            $fontSize = $pdfSettings['fontSize'] ;
+            $fontSize = $pdfSettings['fontSize'];
         } else {
             $fontSize = 8;
         }
@@ -301,7 +290,7 @@ class PdfService
      */
     protected function renderMarker()
     {
-        $this->pdf->SetLineStyle(array('width' => 0.5, 'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array(0)));
+        $this->pdf->SetLineStyle(['width' => 0.5, 'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => [0]]);
 
         if ($this->pdfDemand->getFoldMarks()) {
             $this->pdf->SetLineWidth(0.1);
@@ -332,8 +321,6 @@ class PdfService
 
     /**
      * @param \Extcode\Invoicr\Domain\Model\Invoice $invoice
-     *
-     * @return void
      */
     protected function renderStandaloneView(\Extcode\Invoicr\Domain\Model\Invoice $invoice, $type, $config)
     {
@@ -438,8 +425,6 @@ class PdfService
 
     /**
      * Sets Plugin Settings
-     *
-     * @return void
      */
     protected function setPluginSettings()
     {

@@ -18,7 +18,6 @@ namespace Extcode\Invoicr\Domain\Model;
 /**
  * FileReference
  *
- * @package invoicr
  * @author Daniel Lorenz <ext.invoicr@extco.de>
  */
 class FileReference extends \TYPO3\CMS\Extbase\Domain\Model\FileReference
@@ -26,7 +25,7 @@ class FileReference extends \TYPO3\CMS\Extbase\Domain\Model\FileReference
     /**
      * uid of a sys_file
      *
-     * @var integer
+     * @var int
      */
     protected $originalFileIdentifier;
 
@@ -34,7 +33,6 @@ class FileReference extends \TYPO3\CMS\Extbase\Domain\Model\FileReference
      * setOriginalResource
      *
      * @param \TYPO3\CMS\Core\Resource\FileReference $originalResource
-     * @return void
      */
     public function setOriginalResource(\TYPO3\CMS\Core\Resource\FileReference $originalResource)
     {
@@ -46,7 +44,6 @@ class FileReference extends \TYPO3\CMS\Extbase\Domain\Model\FileReference
      * setFile
      *
      * @param \TYPO3\CMS\Core\Resource\File $falFile
-     * @return void
      */
     public function setFile(\TYPO3\CMS\Core\Resource\File $falFile)
     {

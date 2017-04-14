@@ -18,7 +18,6 @@ namespace Extcode\Invoicr\Domain\Model\Dto;
 /**
  * Data Transfer Object PdfDemand
  *
- * @package invoicr
  * @author Daniel Lorenz <ext.invoicr@extco.de>
  */
 class PdfDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
@@ -65,7 +64,6 @@ class PdfDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Set Debug
      *
      * @param int $debug
-     * @return void
      */
     public function setDebug($debug)
     {
@@ -88,7 +86,6 @@ class PdfDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Set Font Size
      *
      * @param int $fontSize
-     * @return void
      */
     public function setFontSize($fontSize)
     {
@@ -101,7 +98,6 @@ class PdfDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Set Fold Marks
      *
      * @param bool $foldMarks
-     * @return void
      */
     public function setFoldMarks($foldMarks)
     {
@@ -122,7 +118,6 @@ class PdfDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Set Address Field Marks
      *
      * @param bool $addressFieldMarks
-     * @return void
      */
     public function setAddressFieldMarks($addressFieldMarks)
     {

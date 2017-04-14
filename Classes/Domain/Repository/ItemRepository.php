@@ -18,10 +18,8 @@ namespace Extcode\Invoicr\Domain\Repository;
 /**
  * Item Repository
  *
- * @package invoicr
  * @author Daniel Lorenz <ext.invoicr@extco.de>
  */
 class ItemRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
-
 }

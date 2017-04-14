@@ -18,7 +18,6 @@ namespace Extcode\Invoicr\Domain\Model;
 /**
  * Item
  *
- * @package invoicr
  * @author Daniel Lorenz <ext.invoicr@extco.de>
  */
 class Item extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
@@ -86,7 +85,6 @@ class Item extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Sets the sku
      *
      * @param string $sku
-     * @return void
      */
     public function setSku($sku)
     {
@@ -107,7 +105,6 @@ class Item extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Sets the title
      *
      * @param string $title
-     * @return void
      */
     public function setTitle($title)
     {
@@ -128,7 +125,6 @@ class Item extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Sets the description
      *
      * @param string $description
-     * @return void
      */
     public function setDescription($description)
     {
@@ -149,7 +145,6 @@ class Item extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Sets the quantity
      *
      * @param float $quantity
-     * @return void
      */
     public function setQuantity($quantity)
     {
@@ -170,7 +165,6 @@ class Item extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Sets the price
      *
      * @param float $price
-     * @return void
      */
     public function setPrice($price)
     {
@@ -187,7 +181,6 @@ class Item extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     /**
      * @param float $tax
-     * @return void
      */
     public function setTax($tax)
     {
@@ -204,7 +197,6 @@ class Item extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     /**
      * @param \Extcode\Invoicr\Domain\Model\Invoice $invoice
-     * @return void
      */
     public function setInvoice($invoice)
     {

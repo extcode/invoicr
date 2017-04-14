@@ -18,7 +18,6 @@ namespace Extcode\Invoicr\Tests\Unit\Domain\Model;
 /**
  * Mandate Test
  *
- * @package invoicr
  * @author Daniel Lorenz <ext.invoicr@extco.de>
  */
 class MandateTest extends \TYPO3\CMS\Core\Tests\UnitTestCase

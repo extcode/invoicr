@@ -18,7 +18,6 @@ namespace Extcode\Invoicr\Tests\Unit\Domain\Model;
 /**
  * Invoice Test
  *
- * @package invoicr
  * @author Daniel Lorenz <ext.invoicr@extco.de>
  */
 class InvoiceTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
@@ -332,8 +331,8 @@ class InvoiceTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
     public function addItemToObjectStorageHoldingItems()
     {
         $item = new \Extcode\Invoicr\Domain\Model\Item();
-        $itemsObjectStorageMock = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage', array('attach'),
-            array(), '', false);
+        $itemsObjectStorageMock = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage', ['attach'],
+            [], '', false);
         $itemsObjectStorageMock->expects($this->once())->method('attach')->with($this->equalTo($item));
         $this->inject($this->subject, 'items', $itemsObjectStorageMock);
 
@@ -346,12 +345,11 @@ class InvoiceTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
     public function removeItemFromObjectStorageHoldingItems()
     {
         $item = new \Extcode\Invoicr\Domain\Model\Item();
-        $itemsObjectStorageMock = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage', array('detach'),
-            array(), '', false);
+        $itemsObjectStorageMock = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage', ['detach'],
+            [], '', false);
         $itemsObjectStorageMock->expects($this->once())->method('detach')->with($this->equalTo($item));
         $this->inject($this->subject, 'items', $itemsObjectStorageMock);
 
         $this->subject->removeItem($item);
-
     }
 }

@@ -18,7 +18,6 @@ namespace Extcode\Invoicr\Domain\Model;
 /**
  * Customer
  *
- * @package invoicr
  * @author Daniel Lorenz <ext.invoicr@extco.de>
  */
 class Customer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
@@ -68,7 +67,6 @@ class Customer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     /**
      * @param string $number
-     * @return void
      */
     public function setNumber($number)
     {
@@ -85,7 +83,6 @@ class Customer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     /**
      * @param \Extcode\Contacts\Domain\Model\Contact $contact
-     * @return void
      */
     public function setContact($contact)
     {
@@ -102,7 +99,6 @@ class Customer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     /**
      * @param \Extcode\Contacts\Domain\Model\Company $company
-     * @return void
      */
     public function setCompany($company)
     {
@@ -119,7 +115,6 @@ class Customer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     /**
      * @param \Extcode\Contacts\Domain\Model\Address $address
-     * @return void
      */
     public function setAddress($address)
     {
@@ -140,8 +135,6 @@ class Customer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Do not modify this method!
      * It will be rewritten on each save in the extension builder
      * You may modify the constructor of this class instead
-     *
-     * @return void
      */
     protected function initStorageObjects()
     {
@@ -152,7 +145,6 @@ class Customer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Adds a Mandate
      *
      * @param \Extcode\Invoicr\Domain\Model\Mandate $mandate
-     * @return void
      */
     public function addMandate(\Extcode\Invoicr\Domain\Model\Mandate $mandate)
     {
@@ -163,7 +155,6 @@ class Customer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Removes a Mandate
      *
      * @param \Extcode\Invoicr\Domain\Model\Mandate $mandateToRemove The Mandate to be removed
-     * @return void
      */
     public function removeMandate(\Extcode\Invoicr\Domain\Model\Mandate $mandateToRemove)
     {
@@ -184,7 +175,6 @@ class Customer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Sets the mandates
      *
      * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Extcode\Invoicr\Domain\Model\Mandate> $mandates
-     * @return void
      */
     public function setMandates(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $mandates)
     {

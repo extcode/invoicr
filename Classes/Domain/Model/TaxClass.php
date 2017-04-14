@@ -18,10 +18,8 @@ namespace Extcode\Invoicr\Domain\Model;
 /**
  * TaxClass
  *
- * @package invoicr
  * @author Daniel Lorenz <ext.invoicr@extco.de>
  */
 class TaxClass extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
-
 }

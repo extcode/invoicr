@@ -6,7 +6,6 @@ if (!defined('TYPO3_MODE')) {
 /**
  * Register Frontend Plugins
  */
-
 $pluginNames = [
     'Invoice',
 ];
@@ -29,7 +28,6 @@ foreach ($pluginNames as $pluginName) {
 }
 
 if (TYPO3_MODE === 'BE') {
-
     if (!isset($TBE_MODULES['Invoicr'])) {
         $temp_TBE_MODULES = [];
         foreach ($TBE_MODULES as $key => $val) {
@@ -92,7 +90,6 @@ if (TYPO3_MODE === 'BE') {
             'navigationComponentId' => 'typo3-pagetree',
         ]
     );
-
 }
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Invoicr');

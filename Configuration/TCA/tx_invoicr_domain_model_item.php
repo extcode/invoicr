@@ -119,9 +119,9 @@ return [
                         'RTEonly' => 1,
                         'title' => 'LLL:EXT:cms/locallang_ttc.xlf:bodytext.W.RTE',
                         'type' => 'script',
-                        'module' => array(
+                        'module' => [
                             'name' => 'wizard_rte',
-                        ),
+                        ],
                     ]
                 ]
             ],

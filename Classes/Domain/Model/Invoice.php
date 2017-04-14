@@ -18,7 +18,6 @@ namespace Extcode\Invoicr\Domain\Model;
 /**
  * Invoice
  *
- * @package invoicr
  * @author Daniel Lorenz <ext.invoicr@extco.de>
  */
 class Invoice extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
@@ -139,8 +138,6 @@ class Invoice extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     /**
      * Initializes all \TYPO3\CMS\Extbase\Persistence\ObjectStorage properties.
-     *
-     * @return void
      */
     protected function initStorageObjects()
     {
@@ -158,7 +155,6 @@ class Invoice extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     /**
      * @param \Extcode\Invoicr\Domain\Model\Customer $customer
-     * @return void
      */
     public function setCustomer($customer)
     {
@@ -179,7 +175,6 @@ class Invoice extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Sets the invoiceNumber
      *
      * @param string $invoiceNumber
-     * @return void
      */
     public function setInvoiceNumber($invoiceNumber)
     {
@@ -200,7 +195,6 @@ class Invoice extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Sets the title
      *
      * @param string $title
-     * @return void
      */
     public function setTitle($title)
     {
@@ -221,7 +215,6 @@ class Invoice extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Sets the description
      *
      * @param string $description
-     * @return void
      */
     public function setDescription($description)
     {
@@ -242,7 +235,6 @@ class Invoice extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Sets the beginPeriodOfPerformanceDate
      *
      * @param \DateTime $beginPeriodOfPerformanceDate
-     * @return void
      */
     public function setBeginPeriodOfPerformanceDate(\DateTime $beginPeriodOfPerformanceDate = null)
     {
@@ -263,7 +255,6 @@ class Invoice extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Sets the endPeriodOfPerformanceDate
      *
      * @param \DateTime $endPeriodOfPerformanceDate
-     * @return void
      */
     public function setEndPeriodOfPerformanceDate(\DateTime $endPeriodOfPerformanceDate = null)
     {
@@ -284,7 +275,6 @@ class Invoice extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Sets the invoiceDate
      *
      * @param \DateTime $invoiceDate
-     * @return void
      */
     public function setInvoiceDate(\DateTime $invoiceDate = null)
     {
@@ -305,7 +295,6 @@ class Invoice extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Sets the typeOfPayment
      *
      * @param string $typeOfPayment
-     * @return void
      */
     public function setTypeOfPayment($typeOfPayment)
     {
@@ -326,7 +315,6 @@ class Invoice extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Sets the termsOfPayment
      *
      * @param string $termsOfPayment
-     * @return void
      */
     public function setTermsOfPayment($termsOfPayment)
     {
@@ -347,7 +335,6 @@ class Invoice extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Sets the wasSentAt
      *
      * @param \DateTime $wasSentAt
-     * @return void
      */
     public function setWasSentAt(\DateTime $wasSentAt = null)
     {
@@ -368,7 +355,6 @@ class Invoice extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Sets the wasPaidAt
      *
      * @param \DateTime $wasPaidAt
-     * @return void
      */
     public function setWasPaidAt(\DateTime $wasPaidAt = null)
     {
@@ -379,7 +365,6 @@ class Invoice extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Adds a Item
      *
      * @param \Extcode\Invoicr\Domain\Model\Item $item
-     * @return void
      */
     public function addItem(\Extcode\Invoicr\Domain\Model\Item $item)
     {
@@ -390,7 +375,6 @@ class Invoice extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Removes a Item
      *
      * @param \Extcode\Invoicr\Domain\Model\Item $itemToRemove The Item to be removed
-     * @return void
      */
     public function removeItem(\Extcode\Invoicr\Domain\Model\Item $itemToRemove)
     {
@@ -411,7 +395,6 @@ class Invoice extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Sets the items
      *
      * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Extcode\Invoicr\Domain\Model\Item> $items
-     * @return void
      */
     public function setItems(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $items)
     {
@@ -432,7 +415,6 @@ class Invoice extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Sets the invoicePdf
      *
      * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
-     * @return void
      */
     public function setInvoicePdfs(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $invoicePdfs)
     {
@@ -443,8 +425,6 @@ class Invoice extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Adds a Invoice PDF
      *
      * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $invoicePdf
-     *
-     * @return void
      */
     public function addInvoicePdf(\TYPO3\CMS\Extbase\Domain\Model\FileReference $invoicePdf)
     {
@@ -455,8 +435,6 @@ class Invoice extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Removes a Invoice PDF
      *
      * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $invoicePdfToRemove
-     *
-     * @return void
      */
     public function removeInvoicePdf(\TYPO3\CMS\Extbase\Domain\Model\FileReference $invoicePdfToRemove)
     {
@@ -530,7 +508,6 @@ class Invoice extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     /**
      * @param string $contentAbove
-     * @return void
      */
     public function setContentAbove($contentAbove)
     {
@@ -547,7 +524,6 @@ class Invoice extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     /**
      * @param string $contentBelow
-     * @return void
      */
     public function setContentBelow($contentBelow)
     {
